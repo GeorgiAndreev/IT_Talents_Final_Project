@@ -10,6 +10,7 @@ public class User {
 	private String email;
 	private String address;
 	private String profilePic;//file name of the profile pic on server dir
+	//change test comment
 	
 	public User(String username, String name, String password, String email, String address, String profilePic) {
 		this.username = username;
