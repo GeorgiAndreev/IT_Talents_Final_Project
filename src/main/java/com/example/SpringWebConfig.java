@@ -18,9 +18,6 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
-import com.example.model.NewArticle;
-import com.example.model.NewArticleDAO;
-
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.example")

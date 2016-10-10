@@ -19,7 +19,8 @@ public class HelloController {
 	public String sayHello(Model model) {
 		model.addAttribute("text", "Hi !");
 		model.addAttribute(new Product());
-		return "test";
+		return "news-space8";
+		
 	}	
 	
 	@RequestMapping(value="/index", method = RequestMethod.POST)

@@ -1,3 +1,4 @@
+<%@page import="com.example.model.Comment"%>
 <%@page import="ch.qos.logback.core.Context"%>
 <%@page
 	import="org.springframework.context.annotation.AnnotationConfigApplicationContext"%>
@@ -69,6 +70,18 @@ div.comment {
 			</div>
 
 			<p id="demo"></p>
+			
+			<% if (request.getAttribute("comments") != null) {
+				ArrayList<Comment>comments = (ArrayList<Comment>)request.getAttribute("comments") ;
+				for(int index=0; index < comments.size(); index++){
+					
+				}
+			%>
+			<%
+			}
+			%>
+			
+			
 			<div id="content" class="test"
 				style="display: inline-block; float: left; margin: 20px;20px;20px;20px;">
 
