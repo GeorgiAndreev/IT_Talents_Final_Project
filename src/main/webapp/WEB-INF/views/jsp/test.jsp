@@ -42,6 +42,7 @@
 				<td><input type="submit" value="Redirect Page" /></td>
 			</tr>
 		</table>
+		<img src="/NewssiteProject/imgs/dove-mail.jpg">
 	</form:form>
 </body>
 </html>

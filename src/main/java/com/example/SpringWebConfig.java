@@ -19,6 +19,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.springframework.web.servlet.view.JstlView;
 
 import com.example.model.NewArticle;
+import com.example.model.NewArticleDAO;
 
 @Configuration
 @EnableWebMvc
@@ -30,16 +31,13 @@ public class SpringWebConfig extends WebMvcConfigurerAdapter {
         registry.addResourceHandler("/css/**").addResourceLocations("/static/css/");
         registry.addResourceHandler("/pdfs/**").addResourceLocations("/static/pdf/");
         registry.addResourceHandler("/img/**").addResourceLocations("file:"+WebInitializer.LOCATION);
+        registry.addResourceHandler("/imgs/**").addResourceLocations("/static/imgs/");
+        registry.addResourceHandler("/json/**").addResourceLocations("/static/json/");
     }
     
 	@Bean(name = "multipartResolver")
 	public StandardServletMultipartResolver resolver() {
 		return new StandardServletMultipartResolver();
-	}
-	
-	@Bean
-	public NewArticle newArticle() {
-		return new NewArticle();
 	}
 	
 	@Bean

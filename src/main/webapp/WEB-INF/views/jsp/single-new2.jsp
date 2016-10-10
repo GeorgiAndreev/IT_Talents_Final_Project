@@ -1,3 +1,9 @@
+<%@page import="ch.qos.logback.core.Context"%>
+<%@page
+	import="org.springframework.context.annotation.AnnotationConfigApplicationContext"%>
+<%@page import="com.example.NewArticleConfiguration"%>
+
+<%@page import="com.example.model.NewArticleDAO"%>
 <%@page import="java.time.LocalDateTime"%>
 <%@page import="com.example.model.NewDAO"%>
 <%@page import="java.util.ArrayList"%>
@@ -14,12 +20,12 @@
 div.comment {
 	border: solid;
 	border-color: gray;
-	margin:5px;5px;5px;5px;
+	margin: 5px; 5 px; 5 px; 5 px;
 	height: 130px;
 }
 </style>
 </head>
-<body style="zoom: 220%; background-color:  #CDC673;">
+<body style="zoom: 220%; background-color: #CDC673;">
 	<div>
 		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<div id="content1"
@@ -32,7 +38,13 @@ div.comment {
 					out.print(newId);
 					newIdInt = Integer.parseInt(newId);
 
-					ArrayList<New> allNews = NewDAO.allNewsFromFile;
+					AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(
+							NewArticleConfiguration.class);
+					//ArrayList<New> allNews = NewDAO.allNewsFromFile;
+					//ArrayList<New> allNews = NewDAO.getNewsFromFile();
+					ArrayList<New> allNews = context.getBean(NewArticleDAO.class).getNewsFromFile();
+					context.close();
+					//out.print( allNews);out.print( allNews);out.print( allNews);
 					for (int index = 0; index < allNews.size(); index++) {
 						if (allNews.get(index).getId() == newIdInt) {
 							singleNew = allNews.get(index);
@@ -42,7 +54,7 @@ div.comment {
 				}
 			%>
 
-			<h1 style="margin: 20px;20px;20px;20px; color:gray;">
+			<h1 style="margin: 20px; 20 px; 20 px; 20 px; color: gray;">
 				<%=singleNew.getTitle()%>
 			</h1>
 
@@ -55,20 +67,22 @@ div.comment {
 					style="max-width: 660px; max-height: 440px; margin: 0px;0px;30px;20px;"
 					src='<%=singleNew.getMainImage()%>'>
 			</div>
+
 			<p id="demo"></p>
 			<div id="content" class="test"
 				style="display: inline-block; float: left; margin: 20px;20px;20px;20px;">
 
-				<div class="comment" style="background-color: #CDC673;border-radius: 25px;">
+				<div class="comment"
+					style="background-color: #CDC673; border-radius: 25px;">
 					<img
 						style="float: left; margin: 10px; 10 px; 10 px; 10 px; max-width: 100px; max-height: 100px;"
 						src="https://s15.postimg.org/qo2xkeiiz/an1.png">
 					<textarea id="tt" rows="3" cols="40" name="comment" form="usrform"
 						style="font-size: 20px; background-color: #FFF68F; float: left; display: inline-block; margin-top: 20px;"></textarea>
 
-					<form action='./ShowNew' method='post'>
+					<form name="comment" id="comment" action='NewssiteProject/comment' method='get'>
 						<input type="hidden" name="whichNewToShow" value="mock" /> <input
-							id="b1" class="b1"
+							id="b1" class="b1" name="commentText"
 							style="border-radius: 25px; background-color: #FFF68F; margin: 10px; 20 px; 10 px; 30 px; float: right; border-color: black;"
 							class="subscribe" type="button" onclick="addTextArea()"
 							value="POST COMMENT">
@@ -77,29 +91,45 @@ div.comment {
 			</div>
 
 		</div>
+		<!--  <form name="login" id="login"
+			action="<%=application.getContextPath()%>/GoogleLogin" method="get">
+			<input type=hidden id="firstName"  name="firstName"/>
+		</form>
+		<script>
+		document.getElementById("firstName").value = "XYZ";
+		document.getElementById("login").submit();
+		</script>-->
 	</div>
-	<script>
-	function addDate() {
-		document.getElementById("p").innerHTML = Date();
-		document.getElementById('p').id = "ne";
-	}
-	function getTextFromUser() {
-		var textFromUser = document.getElementById("tt").value;
-		document.getElementById("tt").value="";
-		//document.getElementById("t").innerHTML = Date();
-		//document.getElementById('t').id = "ne";
-		document.getElementById('t').value=textFromUser;
-		//document.getElementById('t').value="Tova e komentar";
-		document.getElementById('t').setAttribute("readonly", "true");
-		//document.getElementById('t').value = texFromUser;
-		document.getElementById('t').id = "ne";
-		//document.getElementById('ne').value = texFromUser;
-	}
-	function addTextFromUser() {
-		//document.getElementById("t").innerHTML = Date();
-		document.getElementById('t').value = textFromUser;
-		document.getElementById('t').id = "ne";
-	}
+
+	
+
+		<script>
+		//document.getElementById("comment").value = "XYZ";
+		document.getElementById("login").submit();
+		</script>
+
+		<script>
+		function addDate() {
+			document.getElementById("p").innerHTML = Date();
+			document.getElementById('p').id = "ne";
+		}
+		function getTextFromUser() {
+			var textFromUser = document.getElementById("tt").value;
+			document.getElementById("tt").value = "";
+			//document.getElementById("t").innerHTML = Date();
+			//document.getElementById('t').id = "ne";
+			document.getElementById('t').value = textFromUser;
+			//document.getElementById('t').value="Tova e komentar";
+			document.getElementById('t').setAttribute("readonly", "true");
+			//document.getElementById('t').value = texFromUser;
+			document.getElementById('t').id = "ne";
+			//document.getElementById('ne').value = texFromUser;
+		}
+		function addTextFromUser() {
+			//document.getElementById("t").innerHTML = Date();
+			document.getElementById('t').value = textFromUser;
+			document.getElementById('t').id = "ne";
+		}
 	</script>
 
 	<script type="text/javascript">

@@ -32,7 +32,8 @@ public class ShowNewController{
 		request.setAttribute("newIdToShow", newIdToShow);
 		
 
-		return "NewFile";
+		//return "NewFile";
+		return "single-new2";
 	}	
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
