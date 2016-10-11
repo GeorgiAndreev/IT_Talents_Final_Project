@@ -1,4 +1,4 @@
-package com.example;
+package com.newssite;
 
 import java.util.Locale;
 
@@ -20,7 +20,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.example")
+@ComponentScan("com.newssite")
 public class SpringWebConfig extends WebMvcConfigurerAdapter {
 	
     @Override

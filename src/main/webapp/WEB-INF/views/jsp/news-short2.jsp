@@ -1,10 +1,10 @@
 <%@page import= "org.springframework.context.annotation.AnnotationConfigApplicationContext"%>
 
-<%@page import="com.example.model.NewArticleDAO"%>
-<%@page import="com.example.model.NewDAO"%>
-<%@page import="com.example.NewArticleConfiguration"%>
+<%@page import="com.newssite.model.NewArticleDAO"%>
+<%@page import="com.newssite.model.NewDAO"%>
+<%@page import="com.newssite.NewArticleConfiguration"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="com.example.model.New"%>
+<%@page import="com.newssite.model.New"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

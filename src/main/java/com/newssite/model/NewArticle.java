@@ -1,6 +1,6 @@
-package com.example.model;
+package com.newssite.model;
 
-public class New {
+public class NewArticle {
 	private int id;
 	private static int lastId;
 	private String title;
@@ -74,7 +74,7 @@ public class New {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public New(String title, int year, String genre, String actors, String plot, String posterURL) {
+	public NewArticle(String title, int year, String genre, String actors, String plot, String posterURL) {
 		this.title = title;
 		this.year = year;
 		this.genre = genre;
@@ -83,13 +83,13 @@ public class New {
 		this.posterURL = posterURL;
 		this.actorsArray = actors.split(",");
 	}
-	public New(String title, String text) {
+	public NewArticle(String title, String text) {
 		this.title = title;
 		this.text = text;
 	}
-	public New() {
+	public NewArticle() {
 	}
-	public New(String title, String text, String mainImage) {
+	public NewArticle(String title, String text, String mainImage) {
 		this.id = lastId++;
 		this.title = title;
 		this.text = text;

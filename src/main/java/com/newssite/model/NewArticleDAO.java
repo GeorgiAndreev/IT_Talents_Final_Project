@@ -1,4 +1,4 @@
-package com.example.model;
+package com.newssite.model;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedWriter;

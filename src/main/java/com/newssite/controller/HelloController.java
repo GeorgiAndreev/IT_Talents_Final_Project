@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.newssite.controller;
 
 import java.util.Arrays;
 import java.util.List;

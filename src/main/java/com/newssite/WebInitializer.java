@@ -1,4 +1,4 @@
-package com.example;
+package com.newssite;
 
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration;

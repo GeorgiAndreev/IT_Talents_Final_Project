@@ -1,10 +1,9 @@
-package com.example.controller;
+package com.newssite.controller;
 
 import static org.hamcrest.CoreMatchers.nullValue;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -13,29 +12,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-
-import com.example.model.New;
+import com.newssite.model.New;
 
 /**
  * Servlet implementation class MovieServlet
  */
-@Controller
-public class ShowNewController{
+@WebServlet("/ShowNew2")
+public class ShowNewController2 extends HttpServlet {
+	private static final long serialVersionUID = 1L;
 
-	@RequestMapping(value="/single-new2", method = RequestMethod.GET)
-	public String sayBye(HttpServletRequest request) {
-		//request.setAttribute("Name", "Bitche");
-		String newIdToShow = request.getParameter("whichNewToShow");
-		request.setAttribute("newIdToShow", newIdToShow);
-		
 
-		//return "NewFile";
-		return "single-new2";
-	}	
-	
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("single-new2.jsp").forward(request, response);
 	}

@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.newssite.controller;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.SpringWebConfig;
-import com.example.WebInitializer;
+import com.newssite.SpringWebConfig;
+import com.newssite.WebInitializer;
 
 @Controller
 public class UploadController {

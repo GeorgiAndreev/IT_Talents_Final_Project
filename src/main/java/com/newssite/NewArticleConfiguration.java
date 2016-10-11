@@ -1,10 +1,10 @@
-package com.example;
+package com.newssite;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Scope;
 
-import com.example.model.NewArticle;
-import com.example.model.NewArticleDAO;
+import com.newssite.model.NewArticle;
+import com.newssite.model.NewArticleDAO;
 
 @Configuration
 public class NewArticleConfiguration {
