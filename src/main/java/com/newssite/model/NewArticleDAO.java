@@ -39,7 +39,7 @@ public class NewArticleDAO {
         try {
  
             //Object obj = parser.parse(new FileReader("C:/Users/Jorj Andre/workspace/ServiceDemo/file2.txt"));
-        	Object obj = parser.parse(new FileReader("C:/Users/Jorj Andre/workspace/NewssiteProject/src/main/webapp/static/json/file2.txt"));
+        	Object obj = parser.parse(new FileReader("C:/Users/Maria/workspace/news/NewssiteProject/src/main/webapp/static/json/file2.txt"));
             JsonObject jsonObject = (JsonObject) obj;
  
 			
