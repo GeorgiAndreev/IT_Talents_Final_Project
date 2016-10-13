@@ -7,8 +7,8 @@ import org.springframework.web.servlet.support.
 AbstractAnnotationConfigDispatcherServletInitializer;
  
 public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
-	  public static final String LOCATION = "C:/Users/Jorj Andre/Desktop/Uploaded/"; // Temporary location where files will be stored
-	  
+	//  public static final String LOCATION = "C:/Users/Jorj Andre/Desktop/Uploaded/"; // Temporary location where files will be stored
+	  public static final String LOCATION = "C:/Users/Maria/Desktop/Uploaded/";
 	  private static final long MAX_FILE_SIZE = 5242880; // 5MB : Max file size.
 	                                                        // Beyond that size spring will throw exception.
 	  private static final long MAX_REQUEST_SIZE = 20971520; // 20MB : Total request size containing Multi part.

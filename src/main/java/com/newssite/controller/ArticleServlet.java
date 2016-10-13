@@ -50,7 +50,7 @@ public class ArticleServlet extends HttpServlet {
 			System.out.println("abs. path = " + articlePicFile.getAbsolutePath());
 			Files.copy(articlePicStream, articlePicFile.toPath());
 			ArticleManager.getInstance().createArticle(title,subtitle, articlePicFile.getName(),text);
-			RequestDispatcher view = request.getRequestDispatcher("news-space8.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("index.html");
 			view.forward(request, response);
 		}
 	}

@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import com.newssite.model.UserDAO;
+import com.newssite.model.User;
 
 public class UsersManager {
 
@@ -22,6 +23,19 @@ public class UsersManager {
 	
 	public User getUser(String username){
 		return registerredUsers.get(username);
+	}
+	
+	public boolean hasUser(String username, String password) {
+		if (registerredUsers != null) {
+			if (registerredUsers.containsKey(username)) {
+				if (registerredUsers.get(username).getPassword().equals((password))) {
+					return true;
+				}
+			}
+		} else {
+			System.out.println("No users");
+		}
+		return false;
 	}
 	
 	public synchronized static UsersManager getInstance(){
@@ -39,9 +53,11 @@ public class UsersManager {
 	}
 	
 	public void regUser(String username, String name, String password, String address, String email, String profilePic){
-		User user = new User(username, name, password, email, address, profilePic);
+		if(User.isValidUser(username, name, password, email, address)){
+		User user = new User(username,name, password, email, address, profilePic);
 		registerredUsers.put(username, user);
 		UserDAO.getInstance().saveUser(user);
+		}
 	}
 	
 	public Map<String, User> getAllUsers(){

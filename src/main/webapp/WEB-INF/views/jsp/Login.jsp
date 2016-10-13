@@ -783,7 +783,7 @@ google.setOnLoadCallback(load);
 
 		
 	<div class="register">
-    <form class="form-signin" action="LoginServlet" method="POST">       
+    <form class="form-signin" action="Login" method="POST">       
       <h2 class="form-signin-heading">Please login</h2>
       <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" />
       <input type="password" class="form-control" name="password" placeholder="Password" required=""/>      

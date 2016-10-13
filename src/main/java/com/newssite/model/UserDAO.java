@@ -62,9 +62,10 @@ public class UserDAO {
 	}
 
 	public void saveUser(User user) {
+		
 		try {
 			PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement(
-					"INSERT INTO user.user (username, name, password, email, address, profilePic) VALUES (?, ?, ?, ?, ?, ?);");
+			"INSERT INTO user.user (username, name, password, email, address, profilePic) VALUES (?, ?, ?, ?, ?, ?);");
 			st.setString(1, user.getUsername());
 			st.setString(2, user.getName());
 			st.setString(3, user.getPassword());

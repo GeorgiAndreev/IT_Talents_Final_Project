@@ -783,7 +783,7 @@ google.setOnLoadCallback(load);
 
 		
 	<div class="register">
-     <form class="form-signin" action="ArticleServlet" enctype=" multipart/form-data" method="POST">       
+     <form class="form-signin" action="article-upload"  enctype="multipart/form-data" method="POST">       
       <h2 class="form-signin-heading">Please insert article:</h2>
       <input type="text" class="form-control" name="title" placeholder="Title" required="" autofocus="" />
        <input type="text" class="form-control" name="subtitle" placeholder="Subtitle" required="" autofocus="" />
