@@ -3,6 +3,8 @@
 <%@page
 	import="org.springframework.context.annotation.AnnotationConfigApplicationContext"%>
 <%@page import="com.newssite.NewArticleConfiguration"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <%@page import="com.newssite.model.NewArticleDAO"%>
 <%@page import="java.time.LocalDateTime"%>
@@ -28,6 +30,9 @@ div.comment {
 </head>
 <body style="zoom: 220%; background-color: #CDC673;">
 <div id="fb-root"></div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
+    <script src="http://malsup.github.com/jquery.form.js"></script> 
+
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
@@ -99,18 +104,30 @@ div.comment {
 					<img
 						style="float: left; margin: 10px; 10 px; 10 px; 10 px; max-width: 100px; max-height: 100px;"
 						src="https://s15.postimg.org/qo2xkeiiz/an1.png">
-					<textarea id="tt" rows="3" cols="40" name="comment" form="usrform"
-						style="font-size: 20px; background-color: #FFF68F; float: left; display: inline-block; margin-top: 20px;"></textarea>
+						
+					
 
-					<form name="comment" id="comment" action='NewssiteProject/comment' method='get'>
-						<input type="hidden" name="whichNewToShow" value="mock" /> <input
-							id="b1" class="b1" name="commentText"
+					<form name="comment" id="comment" class="comment" action="http://localhost:8080/NewssiteProject/Comment" method='get'>
+					
+					<textarea id="tt" rows="3" cols="40" name="commentText" style="font-size: 20px; background-color: #FFF68F; float: left; display: inline-block; margin-top: 20px;"></textarea>
+						<!-- <input type="hidden" name="whichNewToShow" value="mock" /> -->
+						<input type="text" name="firstName" size="75"><br>
+						<input
+							id="b1" class="b1" 
 							style="border-radius: 25px; background-color: #FFF68F; margin: 10px; 20 px; 10 px; 30 px; float: right; border-color: black;"
 							class="subscribe" type="button" onclick="addTextArea()"
 							value="POST COMMENT">
 					</form>
 				</div>
 			</div>
+			<!--<form:form method="GET" action="/NewssiteProject/Comment">
+		<table>
+			<tr>
+				<td><input type="submit" value="Redirect Page" /></td>
+			</tr>
+		</table>
+		<img src="/NewssiteProject/imgs/dove-mail.jpg">
+	</form:form>-->
 
 		</div>
 		<!--  <form name="login" id="login"
@@ -127,7 +144,79 @@ div.comment {
 
 		<script>
 		//document.getElementById("comment").value = "XYZ";
-		document.getElementById("login").submit();
+		function submitComment() {
+		//document.getElementById("comment").submit();
+		
+		
+		
+		/*$(function() {
+  $('#comment').submit(function(event) {
+    event.preventDefault(); // Prevent the form from submitting via the browser
+    var form = $(this);
+    $.ajax({
+      type: form.attr('method'),
+      url: form.attr('action'),
+      //data: form.serialize()
+    }).done(function(data) {
+      // Optionally alert the user of success here...
+    }).fail(function(data) {
+      // Optionally alert the user of an error here...
+    });
+  });
+});*/
+
+
+$(function() {
+	  $('#comment').submit(function(event) {
+	    event.preventDefault(); // Prevent the form from submitting via the browser
+	    var form = $(this);
+	    var textOfComment = $('#tt').val();
+	    $.ajax({
+	      type: "get",
+	      url: "http://localhost:8080/NewssiteProject/Comment",
+	      data: "commentText=" + textOfComment
+	    }).done(function(data) {
+	      // Optionally alert the user of success here...
+	    }).fail(function(data) {
+	      // Optionally alert the user of an error here...
+	    });
+	  });
+	});
+		//$("#comment").ajaxForm({url: '/NewssiteProject/Comment', type: 'post'})
+		/*
+			$("#comment").submit(function(e) {
+
+			    var url = "/NewssiteProject/Comment"; // the script where you handle the form input.
+
+			    $.ajax({
+			           type: "POST",
+			           url: url,
+			           data: $("#comment").serialize(), // serializes the form's elements.
+			           success: function(data)
+			           {
+			               alert(data); // show response from the php script.
+			           }
+			         });
+
+			    e.preventDefault(); // avoid to execute the actual submit of the form.
+			});
+		*/
+		
+		/*  var frm = $('#comment');
+	    frm.submit(function (ev) {
+	        $.ajax({
+	            type: frm.attr('method'),
+	            url: frm.attr('action'),
+	            data: frm.serialize(),
+	            success: function (data) {
+	                alert('ok');
+	            }
+	        });
+
+	        ev.preventDefault();
+	    });*/
+
+		}
 		</script>
 
 		<script>
@@ -191,8 +280,10 @@ div.comment {
 			//removeRow(this);
 			//disableElements();
 			addDate();
+			submitComment();
 			getTextFromUser();
 			addTextFromUser();
+			
 		}
 
 		function addText() {

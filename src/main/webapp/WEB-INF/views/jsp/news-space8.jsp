@@ -673,6 +673,9 @@ google.setOnLoadCallback(load);
 <form action="/NewssiteProject/Register"><input title="РЕГИСТРИРАЙ СЕ" id="reg" class="reg" type="image" src="/NewssiteProject/imgs/reg1.png" alt="Submit" width="160" height="160"></form>
 <form action="/NewssiteProject/Login"><input title="ВЛЕЗ В ПРОФИЛА СИ" id="login" class="log" type="image" src="/NewssiteProject/imgs/login2.png" alt="Submit" width="160" height="160"></form>
 <form action="/NewssiteProject/UploadArticle"><input title="UPLOAD ARTICLE" id="login" class="log" type="image" src="/NewssiteProject/imgs/up4.png" alt="Submit" width="160" height="160"></form>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<div id="cont_283d5572f2b299efdfebc2dd0cdbf824"><script type="text/javascript" async src="https://www.yourweather.co.uk/wid_loader/283d5572f2b299efdfebc2dd0cdbf824"></script></div>
+<div id="cont_8f37222d818dcafed3c63c64e14fc1ba"><script type="text/javascript" async src="https://www.yourweather.co.uk/wid_loader/8f37222d818dcafed3c63c64e14fc1ba"></script></div>
 
 </div>
 <div style="color:white;border:solid; border-color:gray; border-radius:25px;height:100%;width:500px;background-color: #CDC673; position:fixed;margin-top:180px;margin-left:2185px;"><br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
