@@ -1,0 +1,459 @@
+@font-face {
+	font-family: BuxtonSketch;
+	src: url('./BuxtonSketch.eot');
+	src: local('BuxtonSketch'), url('./BuxtonSketch.woff') format('woff'), url('./BuxtonSketch.ttf') format('truetype');
+}
+/* use this class to attach this font to any element i.e. <p class="fontsforweb_fontid_1049">Text with this font applied</p> */
+.fontsforweb_fontid_1049 {
+	font-family: BuxtonSketch !important;
+}
+
+.mySlides {
+	display: none;
+	background-color: #CDC673;
+	width: 1200px;
+	height: 600px;
+	margin: 40px 80px 80px 80px;
+	line-height: 1.4em;
+	font-size: 70px;
+}
+
+.wrapper {
+	width: 2230px;
+	margin: 20px auto 20px auto;
+	/*border: 2px solid #000000;*/
+	/*background-color: #D3D3D3;*/
+	background-color: #CDC673;
+	border-radius: 25px;
+}
+
+div.up {
+	display: block;
+	border: solid;
+	border-color: gray;
+	margin: 100px 0px 0px 50px;
+	background-color: #FFF68F;
+	height: 100px;
+	width: 2100px;
+	border-radius: 25px;
+	color: black;
+	line-height: 4.7em;
+	font-size: 56px;
+	font-size: 120%;
+	padding: 7px 0px 0px 20px;
+}
+
+div.upup {
+	margin: 60px 0px 0px 50px;
+	background-color: #FFF68F;
+	width: 2120px;
+	height: 100px;
+	border-radius: 25px;
+}
+
+div.down {
+	width: 2120px;
+	color: black;
+	line-height: 5.7em;
+	margin: 0px 0px 0px 50px;
+	background-color: #FFF68F;
+	height: 100px;
+	border-radius: 25px;
+}
+
+h1 {
+	color: black;
+	text-indent: -9999px;
+	width: 940px;
+	height: 130px;
+	margin: 0px;
+	text-indent: -9999px;
+}
+
+p {
+	color: black;
+}
+
+nav {
+	margin: 210px 0px 0px 0px;
+	clear: both;
+	color: #ffffff;
+	background-color: #CDC673;
+	height: 100px;
+}
+
+footer {
+	clear: both;
+	/*color: #ffffff;*/
+	color: black;
+	background-color: #CDC673;
+	height: 100px;
+	line-height: 4.7em;
+	font-size: 56px;
+	font-size: 120%;
+	padding: 7px 0px 0px 20px;
+	border-radius: 25px;
+}
+
+nav ul {
+	margin: 0px;
+	padding: 5px 0px 5px 30px;
+}
+
+nav li {
+	display: inline;
+	margin-right: 25px;
+	padding: 0px;
+}
+
+nav li a {
+	color: #ffffff;
+}
+
+nav li a:hover, nav li a.current {
+	color: #de6581;
+}
+
+section.about-the-center {
+	margin: 40px 0px 20px 0px;
+	float: left;
+	width: 810px;
+	padding: 0px 0px 0px 0px;
+	background-color: #FFF68F;
+	border-radius: 25px;
+}
+
+section.subscribe2 {
+	margin: 0px 0px 0px 0px;
+}
+
+section.down1 {
+	border: solid;
+	border-color: gray;
+	margin: 70px 30px 30px 70px;
+	height: 250px;
+	width: 2000px;
+	float: left;
+	background-color: #CDC673;
+	border-radius: 25px;
+}
+
+section.menu-inner {
+	border: solid;
+	border-color: gray;
+	margin: 0px 30px 30px 0px;
+	height: 260px;
+	width: 2120px;
+	float: left;
+	background-color: #FFF68F;
+	border-radius: 25px;
+}
+
+section.menu-inner-fixed {
+	/*border: solid;
+	border-color: gray;*/
+	margin: 30px 30px 30px 0px;
+	height: 230px;
+	width: 100%;
+	float: left;
+	background-color: #CDC673;
+	border-radius: 25px;
+}
+
+section.subscribe {
+	padding: 0px 0px 0px 0px;
+	margin: 10px 0px 0px 0px;
+}
+
+section.follow-us {
+	border: solid;
+	border-color: gray;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+	width: 720px;
+	float: left;
+}
+
+aside.middle {
+	border: solid;
+	border-color: gray;
+	width: 810px;
+	float: left;
+	padding: 0px 0px 0px 0px;
+	margin: 20px 0px 20px 0px;
+	background-color: #FFF68F;
+	border-radius: 25px;
+}
+
+hgroup {
+	width: 659px;
+	margin: 30px 30px 0px 10px;
+}
+
+figure.smiling-cat {
+	margin: 30px 30px 0px 30px;
+}
+
+figure.mandala-tree {
+	margin: 10px 0px 5px 0px;
+	padding: 0px;
+}
+
+figure {
+	float: left;
+	width: 290px;
+	height: 150px;
+	padding: 5px;
+	margin: 30px 0px 0px 30px;
+}
+
+figure.earth {
+	float: left;
+	width: 400px;
+	height: 400px;
+	padding: 0px;
+	margin: 0px 0px 10px 0px;
+}
+
+figcaption {
+	font-size: 90%;
+	text-align: left;
+}
+
+aside section a {
+	display: block;
+	padding: 10px;
+	border-bottom: 1px solid #eeeeee;
+}
+
+aside section a:hover {
+	color: #985d6a;
+	background-color: #efefef;
+}
+
+a {
+	color: #de6581;
+	text-decoration: none;
+	font-size: 36px;
+	line-height: 2.9em;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+span {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 21px; /* <-- adjust this */
+}
+
+span.title {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 50px; /* <-- adjust this */
+}
+
+h2 {
+	border-top: 5px solid #CDC673;
+	border-right: 5px solid #CDC673;
+	border-bottom: 5px solid #CDC673;
+	border-left: 5px solid #CDC673;
+	/*color: #de6581;*/
+	color: black;
+	margin: 30px 0px 0px 0px;
+	padding: 10px 10px 10px 10px;
+	margin: 30px 0px 5px 0px;
+	background-color: #CDC673;
+	border-radius: 25px;
+	overflow: hidden;
+	text-align: center;
+	height: 100px;
+}
+
+h3 {
+	margin: 0px 0px 10px 0px;
+	color: #de6581;
+}
+
+aside h2 {
+	padding: 10px 0px 0px 0px;
+	/*color: #de6581;*/
+	color: black;
+}
+
+form {
+	margin: 10px 0px 20px 0px;
+}
+
+form.inquiry {
+	margin: 50px 0px 20px 20px;
+}
+
+input.fb:hover {
+	border: 30px solid;
+	color: #FFF68F;
+	background-color: #FFF68F;
+}
+
+input.m:hover {
+	border: 45px solid;
+	color: #FFF68F;
+}
+
+input.rss:hover {
+	border: 30px solid;
+	color: #FFF68F;
+	background-color: #FFF68F;
+}
+
+input.m {
+	border: 30px solid;
+	border-radius: 25px;
+	color: #CDC673;
+	float: left;
+	margin: 0px 0px 0px 55px;
+	padding: 0px 0px 0px 0px;
+}
+
+input.fb {
+	border: 30px solid;
+	border-radius: 25px;
+	color: #CDC673;
+	background-color: #CDC673;
+	float: left;
+	margin: 0px 0px 0px 110px;
+	padding: 0px 0px 0px 0px;
+}
+
+input.rss {
+	border: 30px solid;
+	border-radius: 25px;
+	color: #CDC673;
+	background-color: #CDC673;
+	float: left;
+	margin: 10px 0px 0px 110px;
+	padding: 0px 0px 0px 0px;
+}
+
+input.log {
+	float: left;
+	margin: 10px 0px 0px 26px;
+	padding: 0px 0px 0px 0px;
+}
+
+input.reg {
+	float: left;
+	margin: 10px 0px 0px 26px;
+	padding: 0px 0px 0px 0px;
+}
+
+input.home {
+	cursor: url(fb1.png), pointer, default;
+	margin: 10px 0px 0px 26px;
+}
+
+input.paleta {
+	float: left;
+	margin: 10px 0px 0px 26px;
+	padding: 0px 0px 0px 0px;
+}
+
+button {
+	margin: 20px 10px 10px 0px;
+}
+
+input.select-theme {
+	width: 200px;
+	height: 100px;
+	margin: 40px 40px 40px 40px;
+}
+
+input.draw-quotes {
+	margin: 20px 10px 0px 0px;
+}
+
+input.subscribe-name {
+	margin: 10px 10px 0px 0px;
+}
+
+input.subscribe-name1 {
+	margin: 10px 10px 0px 0px;
+}
+
+input.subscribe-email {
+	margin: 10px 10px 20px 0px;
+}
+
+input.subscribe {
+	margin: 20px 10px 0px 0px;
+}
+
+iframe.round-clock {
+	margin: 40px 0px 0px 140px;
+}
+
+#canvas {
+	pointer-events: none;
+}
+
+canvas {
+	position: absolute;
+	display: block;
+}
+
+a.back-to-top {
+	width: 150px;
+	height: 150px;
+	text-indent: -9999px;
+	position: fixed;
+	z-index: 999;
+	right: 30px;
+	bottom: 20px;
+	background: #CDC673 url("/NewssiteProject/imgs/up5.png") no-repeat
+		center 43%;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 60px;
+	border-style: solid;
+	border-color: gray;
+}
+
+#new1 {
+	background-image: src="/NewssiteProject/imgs/wheat1.jpg";
+}
+
+}
+
+/* Paste this css to your style sheet file or under head tag */
+/* This only works with JavaScript, 
+if it's not present, don't show loader */
+.no-js #loader {
+	display: none;
+}
+
+.js #loader {
+	display: block;
+	position: absolute;
+	left: 100px;
+	top: 0;
+}
+
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url("/NewssiteProject/imgs/await.gif") center no-repeat #fff;
+}
+
+#feedControl {
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 500px;
+	font-size: 12px;
+	color: #9CADD0;
+}
