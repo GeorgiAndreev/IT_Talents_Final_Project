@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet {
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/*protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		String htmlFile;
@@ -39,5 +39,5 @@ public class LoginServlet extends HttpServlet {
 		RequestDispatcher view = request.getRequestDispatcher(htmlFile);
 		view.forward(request, response);
 	}
-
+*/
 }

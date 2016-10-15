@@ -788,7 +788,7 @@ google.setOnLoadCallback(load);
       <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" />
       <input type="password" class="form-control" name="password" placeholder="Password" required=""/>      
       <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
-      <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="window.location.href='/EpicApp/Register.html'">Register</button>   
+      <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="window.location.href='Register'">Register</button>   
     </form>
     <br> 
   </div>

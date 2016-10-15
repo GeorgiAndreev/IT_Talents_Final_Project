@@ -673,6 +673,7 @@ google.setOnLoadCallback(load);
 <form action="/NewssiteProject/Register"><input title="РЕГИСТРИРАЙ СЕ" id="reg" class="reg" type="image" src="/NewssiteProject/imgs/reg1.png" alt="Submit" width="160" height="160"></form>
 <form action="/NewssiteProject/Login"><input title="ВЛЕЗ В ПРОФИЛА СИ" id="login" class="log" type="image" src="/NewssiteProject/imgs/login2.png" alt="Submit" width="160" height="160"></form>
 <form action="/NewssiteProject/UploadArticle"><input title="UPLOAD ARTICLE" id="login" class="log" type="image" src="/NewssiteProject/imgs/up4.png" alt="Submit" width="160" height="160"></form>
+
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 <div id="cont_283d5572f2b299efdfebc2dd0cdbf824"><script type="text/javascript" async src="https://www.yourweather.co.uk/wid_loader/283d5572f2b299efdfebc2dd0cdbf824"></script></div>
 <div id="cont_8f37222d818dcafed3c63c64e14fc1ba"><script type="text/javascript" async src="https://www.yourweather.co.uk/wid_loader/8f37222d818dcafed3c63c64e14fc1ba"></script></div>
@@ -950,9 +951,30 @@ google.setOnLoadCallback(load);
 		</aside>
 		
 		 <aside class="middle">
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
+<h2>Select a town:</h2>
+		<h3>City name: </h3><input type="text" name="city" id="city" value="Sofia"><br>
+		<input type="button" onClick="askApi()" value="Search"><br>	
+		<h3>Temperature: </h3><h2 id="temp"></h2><br>
+		<h3>Description: </h3><h3 id="desc"></h3><br>
 		</aside>
+		
+		<script>
+		function askApi(){
+			var city = document.getElementById("city").value;
+			$.get(
+				"getWeather", //url to server - the get request goes there
+				{name:city}, //data for server - parameters for the request
+				function(data){//starts when server returns a response. data is the response body
+				var json = jQuery.parseJSON(data);
+				document.getElementById("temp").innerHTML = Math.round(json.main.temp-273);
+				document.getElementById("desc").innerHTML = json.weather[0].description;
+				//do something with the response
+			})
+		}
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
+	
 		
 		<!--  <a href="#" class="back-to-top">Back to Top</a>	-->
 			<!--  <section class="follow-us">

@@ -20,29 +20,28 @@ public class LoginController {
 	public String sayHello(Model model) {
 		model.addAttribute("text", "Hi !");
 		model.addAttribute(new Product());
-		return "Login";
-		
+		return "Login";		
 	}
+	
 	
 	@RequestMapping(value="/Login", method = RequestMethod.POST)
 	public String log(Model model, @ModelAttribute("username") String username, @ModelAttribute("password") String password,HttpServletRequest request) {
 
 		if (UsersManager.getInstance().hasUser(username,password)) {
 			User user= UsersManager.getInstance().getUser(username);
-			request.getSession(false).invalidate();
+			//request.getSession(false).invalidate();
 			HttpSession session = request.getSession(true);
 			session.setMaxInactiveInterval(60 * 60);
 			session.setAttribute("username", user.getUsername());
 			model.addAttribute(user);
-			User userr= UserDAO.getUser(username, password);
-			System.out.println(userr);
+		    User userr= UserDAO.getUser(username, password);
+			//System.out.println(userr);
 			request.setAttribute("user", userr);
+			request.setAttribute("username", username);
 			return "loged";
-		
 	}
-		else{
 		return "LoginFailed";
-		}
+
 
 }
 }

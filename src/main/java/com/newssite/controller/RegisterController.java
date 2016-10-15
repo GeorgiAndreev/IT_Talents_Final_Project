@@ -88,7 +88,7 @@ public class RegisterController {
 
 			} 
 		else {
-				return "news-space8";
+				return "RegisterFailed";
 			}
 
 	}

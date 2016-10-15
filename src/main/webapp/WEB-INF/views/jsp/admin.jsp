@@ -1,4 +1,8 @@
 <%@page import="com.newssite.controller.ChangeThemes"%>
+<%@page import="com.newssite.model.User" %>
+<%@page import="com.newssite.model.UsersManager" %>
+<%@page import="com.newssite.model.Article" %>
+<%@page import="com.newssite.model.ArticleManager" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" 
@@ -692,8 +696,12 @@ google.setOnLoadCallback(load);
 	<div class="up">
 
 	<c:set var="username" value="${username}" />
-			<font size="70">&nbsp;&nbsp;&nbsp;&nbsp;			
-		ДОБРЕ ДОШЛИ, <c:out value="${username}" />
+			<font size="70">&nbsp;&nbsp;&nbsp;&nbsp;
+			
+		ДОБРЕ ДОШЛИ, вне сте влезли в профила си <c:out value="${username}" />
+		
+        
+
 		 </font>
 			 
 			
@@ -740,29 +748,51 @@ google.setOnLoadCallback(load);
 		
 		<aside class="left-up">
 
-			<h2 class="w3-center"><font size="20">ИЗБРАНИ НОВИНИ</font></h2>
-
-<div class="w3-content" style="width:400px">
-
-<div class="mySlides" style="width:1200px;height:600px;">
-  <img src="/NewssiteProject/imgs/red-stars1.jpg" style="width:1200px;height:480px;">
-  <div><a href="http://www.space.com"><font size="800">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;КОСМОС</font></a></div>
-</div>
-
-<div class="mySlides" style="width:1200px;height:600px;">
-  <img src="/NewssiteProject/imgs/wheat1.jpg" style="width:1200px;height:480px;">
-  <div><a href="https://en.wikipedia.org/wiki/Wheat"><font size="800">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ЖИТО</font></a></div>
-</div>
-
-<div id="new1" class="mySlides" style="width:1200px;height:600px;">
-  <img src="/NewssiteProject/imgs/forest1.jpg" style="width:1200px;height:480px;">
-  <div><a href="http://survivetheforest.com"><font size="800">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ГОРА</font></a></div>
-</div>
-
-<!--  <img class="mySlides" src="/NewssiteProject/imgs/wheat1.jpg" style="width:1200px;height:600px;">-->
-
-</div>
-
+			<table border="solid">
+			<tr>
+				<th>Name</th>
+				<th>Username</th>
+				<th>Password</th>
+				<th>Address</th>
+				<th>Picture</th>
+				<th>More Info</th>
+			</tr>
+			
+			<% for(User u : UsersManager.getInstance().getAllUsers().values()){  %>
+				<tr>
+					<td><%= u.getName() %></td>
+					<td><%= u.getUsername() %></td>
+					<td><%= u.getPassword() %></td>
+					<td><%= u.getAddress() %></td>
+					<td><img src="PictureServlet?username=<%= u.getUsername()%>" height="30" width="30"></td>
+					<td>
+						<form action="ProfileServlet" method="POST">
+							<input type="submit" value="View profile">
+							<input type="hidden" value="<%= u.getName() %>">
+						</form>
+					</td>
+				</tr>
+			<% }  %>
+		</table>
+		
+		
+		<table>
+			<tr>
+				<th>Title</th>
+				<th>Subtitle</th>
+				<th>Text</th>
+				
+			</tr>
+			
+			<% for(Article article : ArticleManager.getInstance().getAllArticles().values()){  %>
+				<tr>
+					<td><%= article.getTitle() %></td>
+					<td><%= article.getSubtitle() %></td>
+					<td><%= article.getText() %></td>	
+				</tr>
+			<% }  %>
+		</table>
+		
 		</aside>
 		
 		 <aside class="right-up">

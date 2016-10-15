@@ -1,11 +1,12 @@
 <%@page import="com.newssite.controller.ChangeThemes"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" 
-           uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
+<link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css'>
+<link rel="stylesheet" href="/NewssiteProject/src/main/webapp/static/css/style.css">
+
 <title>Ежедневик.бг</title>
 
 
@@ -20,6 +21,50 @@ String headerImage = ChangeThemes.returnHeaderImage(id);
 String backgroundImage = ChangeThemes.returnImage(id);
 String backgroundColor = ChangeThemes.returnColor(id);
 String borderColor = ChangeThemes.returnBorder(id);%>
+
+
+.register {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.form-signin {
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 30px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 20px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
 
 body {
     zoom: 100%;
@@ -302,6 +347,9 @@ border: solid;
 	padding: 0px 0px 0px 0px;
 	margin: 60px 0px 0px 40px;
 	<%=backgroundColor%>
+	background-image: url(/NewssiteProject/imgs/background.jpg);
+	 background-repeat: no-repeat;
+	 background-size: 1600px 800px;
 	border-radius: 25px;
 }
 
@@ -671,12 +719,7 @@ google.setOnLoadCallback(load);
 
 		</aside>
 </div>
-<div style="border:solid; border-color:gray; border-radius:25px; float:left;height:100%;width:500px;background-color: #CDC673; position:fixed;margin-top:180px;">
-<form action="/NewssiteProject/Register"><input title="РЕГИСТРИРАЙ СЕ" id="reg" class="reg" type="image" src="/NewssiteProject/imgs/reg1.png" alt="Submit" width="160" height="160"></form>
-<form action="/NewssiteProject/Login"><input title="ВЛЕЗ В ПРОФИЛА СИ" id="login" class="log" type="image" src="/NewssiteProject/imgs/login2.png" alt="Submit" width="160" height="160"></form>
-<form action="/NewssiteProject/UploadArticle"><input title="UPLOAD ARTICLE" id="login" class="log" type="image" src="/NewssiteProject/imgs/up4.png" alt="Submit" width="160" height="160"></form>
-
-</div>
+<div style="border:solid; border-color:gray; border-radius:25px; float:left;height:100%;width:500px;background-color: #CDC673; position:fixed;margin-top:180px;"></div>
 <div style="color:white;border:solid; border-color:gray; border-radius:25px;height:100%;width:500px;background-color: #CDC673; position:fixed;margin-top:180px;margin-left:2185px;"><br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
 <br> <br> <br> <br> <br><br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <font size="70"style="border:solid; border-color:gray; border-radius:25px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &copy; 2016&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ежедневник.бг&nbsp;&nbsp;&nbsp; </font></div>
 <div class="se-pre-con"></div>
@@ -690,11 +733,9 @@ google.setOnLoadCallback(load);
 			
 		</div>
 	<div class="up">
-
-	<c:set var="username" value="${username}" />
-			<font size="70">&nbsp;&nbsp;&nbsp;&nbsp;			
-		ДОБРЕ ДОШЛИ, <c:out value="${username}" />
-		 </font>
+			<font size="70">&nbsp;&nbsp;&nbsp;&nbsp;
+			
+			ДОБРЕ ДОШЛИ, не сте влезли в профила си </font>
 			 
 			
 		</div >
@@ -740,231 +781,26 @@ google.setOnLoadCallback(load);
 		
 		<aside class="left-up">
 
-			<h2 class="w3-center"><font size="20">ИЗБРАНИ НОВИНИ</font></h2>
+		
+	<div class="register">
+         <form class="form-signin" action="Register" method="POST" enctype="multipart/form-data">       
+	      <h2 class="form-signin-heading">Invalid credentials! Please try again!</h2>
+	      <input id="username" type="text" 	style="border:1px solid #ff0000"	class="form-control" name="username" 	placeholder="Username" 	required="" autofocus="" /> </br>
+	      <input type="text" 		class="form-control" name="name" 	style="border:1px solid #ff0000"	placeholder="Name" 		required=""/>  </br>  
+	      <input type="password" 	class="form-control" name="password" style="border:1px solid #ff0000"	placeholder="Password" 	required=""/>  
+	      <input type="password" 	class="form-control" name="password2" style="border:1px solid #ff0000"	placeholder="Password again" required=""/>   
+	      <input type="text" 		class="form-control" name="email" style="border:1px solid #ff0000"		placeholder="Email" 	required=""/>   </br> 
+	      <input type="text" 		class="form-control" name="address" style="border:1px solid #ff0000"	placeholder="Address" 	required=""/>   </br>  
+	       <label for="other">Upload photo:</label>   
+	      <input type="file" class="form-control" name="profilePic" placeholder="Profile pic" required=""/> </br>        
+	      <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="Window()">Register</button> 
+	    </form>
+	    </div>
 
-<div class="w3-content" style="width:400px">
-
-<div class="mySlides" style="width:1200px;height:600px;">
-  <img src="/NewssiteProject/imgs/red-stars1.jpg" style="width:1200px;height:480px;">
-  <div><a href="http://www.space.com"><font size="800">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;КОСМОС</font></a></div>
-</div>
-
-<div class="mySlides" style="width:1200px;height:600px;">
-  <img src="/NewssiteProject/imgs/wheat1.jpg" style="width:1200px;height:480px;">
-  <div><a href="https://en.wikipedia.org/wiki/Wheat"><font size="800">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ЖИТО</font></a></div>
-</div>
-
-<div id="new1" class="mySlides" style="width:1200px;height:600px;">
-  <img src="/NewssiteProject/imgs/forest1.jpg" style="width:1200px;height:480px;">
-  <div><a href="http://survivetheforest.com"><font size="800">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ГОРА</font></a></div>
-</div>
-
-<!--  <img class="mySlides" src="/NewssiteProject/imgs/wheat1.jpg" style="width:1200px;height:600px;">-->
-
-</div>
 
 		</aside>
 		
-		 <aside class="right-up">
-
-			
-			<!-- BITTY BROWSER : WWW.BITTY.COM : {BEGIN} -->
-<!--  <table style="width:100% !important;background:#999 !important;padding:0px !important;margin:0px !important;border:0px !important;border-collapse:collapse !important"><tr><td style="background:#999 !important;padding:1px !important;margin:0px !important;border:0px !important;"><iframe src="http://b1.bitty.com/b2browser/?contenttype=rssfeed&contentvalue=http%3A%2F%2Ffeeds%2Elabnol%2Eorg%2Flabnol"  style="display:block !important;width:100% !important;height:400px !important;background:#D4D0C8 !important;padding:0px !important;margin:0px !important;border:0px !important;"><a href="http://www.bitty.com/">Bitty Browser</a> (iframes required)</iframe></td></tr></table>-->
-<!-- BITTY BROWSER : WWW.BITTY.COM : {END} -->
-<!--  <a href="http://www.bitty.com/manual/?contenttype=rssfeed&contentvalue=http%3A%2F%2Ffeeds%2Elabnol%2Eorg%2Flabnol" target="_blank">Add my Bitty Browser to your site...</a>-->
 	
-		<iframe width="400" height="400" style="border:none;" src="http://output96.rssinclude.com/output?type=iframe&amp;id=1099968&amp;hash=acfd107628e325462cd6bbe615df114a"></iframe>
-		<iframe width="700" height="700" style="border:none;" src="http://output50.rssinclude.com/output?type=iframe&amp;id=1099973&amp;hash=8d1d46f8c7b113b14b9c118ca1b047d8"></iframe>
-		</aside>
-
-		<aside class="left">
-		<article class="earth">
-		<figure class="earth">
-					<img src="/NewssiteProject/imgs/e1.gif" alt="Earth" />
-				</figure>
-</article>
-			
-		
-
-
-		<div id="body">
-<div id="feedControl">Loading...</div>
-</div>
-			<section class="search-for-events">
-
-				  <h2><font size="20">АНКЕТА</font></h2>
-				  
-				  <form class="inquiry">
-				  <font size="20">Какво мислите за програмистите?</font><br><br>
-  <input type="radio" name="gender" value="male" checked><font size="20">Готини са. </font><br><br><br>
-  <input type="radio" name="gender" value="female"><font size="20">Много са готини.</font><br><br><br>
-  <input type="radio" name="gender" value="other"><font size="20">Турбо мега готини са.</font>
-  <input class="select-theme" type="submit"
-						value="ГЛАСУВАЙ!">
-</form>
-			
-			</section>
-		</aside>
-
-
-		<aside class="right">
-			
-
-			 <section class="subscribe2">
-			 <!-- 
-				<h2>
-					<span>Абонирайте се за <br> нашият бюлетин:
-					</span>
-				</h2>
--->
-
-<form style="cursor: url('/NewssiteProject/imgs/up-arrow.png'), pointer, default" action="${pageContext.request.contextPath}/jsp/login.jsp"><input title="ВЛЕЗ В ПРОФИЛА СИ" id="login" class="log" type="image" src="/NewssiteProject/imgs/login2.png" alt="Submit" width="160" height="160"></form>
-<form action="${pageContext.request.contextPath}/jsp/login.jsp"><input title="РЕГИСТРИРАЙ СЕ" id="reg" class="reg" type="image" src="/NewssiteProject/imgs/reg1.png" alt="Submit" width="160" height="160"></form>
-<form><input title="КЪМ ГЛАВНАТА СТРАНИЦА" id="home" class="home" type="image" src="/NewssiteProject/imgs/home1.gif" alt="Submit" width="160" height="160"></form>
-		<form><input title="РАЗГЛЕДАЙ И КОМЕНТИРАЙ ТЕМИТЕ" id="paleta" class="paleta" type="image" src="/NewssiteProject/imgs/paleta1.jpg" alt="Submit" width="260" height="160"></form>
-				<input class="select-theme" type="submit"
-						value="Изтегли новина!">
-<form action="${pageContext.request.contextPath}/jsp/login.jsp"><input title="ЗАПИШИ СЕ ЗА БЮЛЕТИН" id="login" class="log" type="image" src="/NewssiteProject/imgs/mail1.png" alt="Submit" width="260" height="160"></form>
-<form action="${pageContext.request.contextPath}/jsp/login.jsp"><input title="СВЪРЖИ СЕ С НАС" id="home" class="home" type="image" src="/NewssiteProject/imgs/contact1.jpg" alt="Submit" width="240" height="160"></form>
-<iframe src="http://free.timeanddate.com/clock/i5dxw7xh/n238/tlbg11/fn2/fs36/tcccc/ftb/bo2/tt1" width="695" height="55"></iframe>
-<iframe class="round-clock" src="http://free.timeanddate.com/clock/i5dxi3b7/n238/szw400/szh400/hoc09f/hbw0/hfc09f/cf100/hnce1ead6/fas30/fdi66/mqc000/mql15/mqw4/mqd98/mhc000/mhl15/mhw4/mhd98/mmc000/mml10/mmw1/mmd98/hhs2/hms2" width="400" height="400"></iframe>
-<!--  https://www.timeanddate.com/clocks/free.html-->
-				<%
-					String name1 = (String) request.getAttribute("name");
-					String email1 = (String) request.getAttribute("email");
-				%>
-				<%
-					//int id = 1;
-					//request.setAttribute("page_no", id);
-					String whichPage1 = "/jsp/about-the-center-out.jsp";
-					session.setAttribute("whichPage", whichPage1);
-				%>
-				<form action="${pageContext.request.contextPath}/subscribe-servlet"
-					method="get">
-				
-					<br> Name: <input class="subscribe-name1" type="text"
-						name="userName"><br> Email: <input
-						class="subscribe-email" type="text" name="email"><br>
-					<input class="subscribe" type="submit" value="Абонирам се!">
-
-
-				</form>
-			</section>
-
-			<!--<section class="search-for-events">
-
-				  <h2>Search for events:</h2>
-				<form>
-					word to search for:<br> <input type="text" name="username"><br>
-					<button type="button">Search!</button>
-				</form>
-
-			</section>-->
-
-			<section class="draw-quotes">
-
-
-				<h2>
-					Случайна новина:<br> <br>
-				</h2>
-
-				<!--  <form action="servlet1" method="get"> -->
-				<form>
-					
-				</form>
-
-
-			</section>
-<section style="width:500px;height:500px;padding:6px;6px;6px;6px;overflow:scroll;">
-<script language="JavaScript" src="http://www.feedbucket.com/js.php?src=http%3A%2F%2Ffeeds.labnol.org%2Flabnol&chan=y&desc=1&date=y" type="text/javascript"></script>
-<noscript>
-<a href="http://www.feedbucket.com/">Web RSS</a> by FeedBucket.
-</noscript>
-	</section>		
-			
-			
-		</aside>
-
-		<section class="about-the-center">
-			
-				<h2>
-					Абонирайте1 се за <br> нашият бюлетин:
-				</h2>
-				
-				<!-- <h3>And what we can do for you</h3> -->
-			
-			
-
-			<!-- Come and bring with yourself
-					who you are... And you will realize you are much more!
-				<p style="text-indent: 5em;" > -->
-
-			<article>
-				<figure>
-					<img src="/NewssiteProject/imgs/itt1.png"
-						alt="Woman Tree" />
-					<figcaption></figcaption>
-				</figure>
-				<p>
-					<br>ИТ ТАЛАНТИ ОТКРИВАТ УЧЕБЕН ЦЕНТЪР И В ПЛОВДИВ<br> <br>Супер
-					успешната фирма за подготовка на младши програмисти започва
-					обучения и в провинцията
-
-				</p>
-			</article>
-			<article>
-				<figure>
-					<img src="/NewssiteProject/imgs/vlak1.png"
-						alt="Woman Tree" />
-					<figcaption></figcaption>
-				</figure>
-				<p>
-					<br>ПЪРВИЯТ ВЛАК СТРЕЛА В БЪЛГАРИЯ СВЪРЗВА ПЛЕВЕН И СОФИЯ<br>
-					<br> Плевенските студенти ликуват: вече ще си пътуват до вкъщи
-					за половин час
-				</p>
-			</article>
-			<article>
-				<figure>
-					<img src="/NewssiteProject/imgs/bgnt1.png"
-						alt="Woman Tree" />
-					<figcaption></figcaption>
-				</figure>
-				<p>
-					<br>НИКОЛАЙ ТОМИТОВ Е НОВИЯТ ПРЕЗИДЕНТ НА РЕПУБЛИКА БЪЛГАРИЯ<br>
-					<br> Страната ни е вече в сигурни ръце, най-накрая свестен човек ще я управлява
-				</p>
-			</article>
-			
-		</section>
-
-      <aside class="middle">
-
-			<section class="subscribe">
-				<h2>
-					<font size="20">МОТИВИРАЩО ВИДЕО</font>
-				</h2>
-
-				<iframe width="800" height="550" src="https://www.youtube.com/embed/5-sfG8BV8wU" ></iframe>
-			</section>
-
-		</aside>
-		
-		 <aside class="middle">
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-		</aside>
-		
-		<!--  <a href="#" class="back-to-top">Back to Top</a>	-->
-			<!--  <section class="follow-us">
-		
-				<h2>Свържете се с нас:</h2>
-				<p>
-					Имейл адрес:<br /> ejednevie_bg@abv.bg<br /> Телефон на
-					редакцията:<br /> 0878675645
-				</p>
-
-			</section>-->
 		
 			 <aside class="down">
 
