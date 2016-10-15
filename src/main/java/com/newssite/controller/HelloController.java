@@ -19,7 +19,7 @@ public class HelloController {
 	public String sayHello(Model model) {
 		model.addAttribute("text", "Hi !");
 		model.addAttribute(new Product());
-		return "news-space8";
+		return "index";
 		
 	}	
 	
