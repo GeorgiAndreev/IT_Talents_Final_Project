@@ -23,7 +23,7 @@
 	margin: 20px auto 20px auto;
 	/*border: 2px solid #000000;*/
 	/*background-color: #D3D3D3;*/
-	background-color: #CDC673;
+	background-color: #CECC15;
 	border-radius: 25px;
 }
 
@@ -32,18 +32,22 @@ div.up {
 	border: solid;
 	border-color: gray;
 	margin: 100px 0px 0px 50px;
-	background-color: #FFF68F;
+	background-color: #CDC673;
 	height: 100px;
 	width: 2100px;
 	border-radius: 25px;
-	color: black;
+	color: white;
 	line-height: 4.7em;
 	font-size: 56px;
 	font-size: 120%;
 	padding: 7px 0px 0px 20px;
+	font-family: BuxtonSketch;
+	
 }
 
 div.upup {
+	border: solid;
+	border-color: gray;
 	margin: 60px 0px 0px 50px;
 	background-color: #FFF68F;
 	width: 2120px;
@@ -52,26 +56,32 @@ div.upup {
 }
 
 div.down {
+	border: solid;
+	border-color: gray;
 	width: 2120px;
-	color: black;
+	color: white;
 	line-height: 5.7em;
 	margin: 0px 0px 0px 50px;
-	background-color: #FFF68F;
+	background-color: #CDC673;
 	height: 100px;
 	border-radius: 25px;
+	font-family: BuxtonSketch;
 }
 
 h1 {
 	color: black;
-	text-indent: -9999px;
+	/*text-indent: -9999px;
 	width: 940px;
-	height: 130px;
+	height: 130px;*/
+	height: 500px;
+	line-height: 20em;
+	
+	font-size: 120%;
 	margin: 0px;
-	text-indent: -9999px;
 }
 
 p {
-	color: black;
+	/*color: black;*/
 }
 
 nav {
@@ -83,9 +93,11 @@ nav {
 }
 
 footer {
+	border: solid;
+	border-color: #777733;
 	clear: both;
 	/*color: #ffffff;*/
-	color: black;
+	color: white;
 	background-color: #CDC673;
 	height: 100px;
 	line-height: 4.7em;
@@ -93,6 +105,8 @@ footer {
 	font-size: 120%;
 	padding: 7px 0px 0px 20px;
 	border-radius: 25px;
+	font-family: BuxtonSketch;
+	padding-left: 400px;
 }
 
 nav ul {
@@ -190,15 +204,6 @@ hgroup {
 	margin: 30px 30px 0px 10px;
 }
 
-figure.smiling-cat {
-	margin: 30px 30px 0px 30px;
-}
-
-figure.mandala-tree {
-	margin: 10px 0px 5px 0px;
-	padding: 0px;
-}
-
 figure {
 	float: left;
 	width: 290px;
@@ -255,20 +260,34 @@ span.title {
 }
 
 h2 {
-	border-top: 5px solid #CDC673;
+	/*border-top: 5px solid #CDC673;
 	border-right: 5px solid #CDC673;
 	border-bottom: 5px solid #CDC673;
 	border-left: 5px solid #CDC673;
 	/*color: #de6581;*/
-	color: black;
+	color: white;
 	margin: 30px 0px 0px 0px;
 	padding: 10px 10px 10px 10px;
 	margin: 30px 0px 5px 0px;
-	background-color: #CDC673;
+	background-color: #777733;
 	border-radius: 25px;
 	overflow: hidden;
 	text-align: center;
-	height: 100px;
+	font-size: 50px;
+	height: 80px;
+}
+
+header {
+    border: solid;
+	border-color: gray;
+	margin: 0px 0px 0px 50px;
+	/*action: "/NewssiteProject/jsp2/news-green.jsp";*/
+	color: #ffff00;
+	height: 462px;
+	width: 2120px;
+	/*)background-image: url(/NewssiteProject/imgs/);*/
+	background-color: #777733;
+    border-radius: 25px;
 }
 
 h3 {
@@ -279,7 +298,7 @@ h3 {
 aside h2 {
 	padding: 10px 0px 0px 0px;
 	/*color: #de6581;*/
-	color: black;
+	color: white;
 }
 
 form {
@@ -418,6 +437,10 @@ a.back-to-top {
 	border-style: solid;
 	border-color: gray;
 }
+
+a:hover.back-to-top {
+	background-color: #CDC673;
+}	
 
 #new1 {
 	background-image: src="/NewssiteProject/imgs/wheat1.jpg";

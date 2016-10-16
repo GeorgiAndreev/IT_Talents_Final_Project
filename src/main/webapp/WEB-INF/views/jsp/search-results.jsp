@@ -1,8 +1,18 @@
 <%@page import="com.newssite.controller.ChangeThemes"%>
 
+<%@page import= "org.springframework.context.annotation.AnnotationConfigApplicationContext"%>
 
+<%@page import="com.newssite.model.NewArticleDAO"%>
+<%@page import="com.newssite.model.NewDAO"%>
+<%@page import="com.newssite.NewArticleConfiguration"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.newssite.model.New"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,7 +30,7 @@ header, section, footer, aside, nav, article, figure, figcaption {
 	display: block;
 }
 
-article.earth {
+article.earth{
 	/*height: 263px;
 	width: 248px;*/
 	height: 510px;
@@ -31,7 +41,7 @@ article.earth {
 }
 
 aside.right {
-	border: solid;
+    border: solid;
 	border-color: gray;
 	width: 690px;
 	height: 2000px;
@@ -39,112 +49,101 @@ aside.right {
 	padding: 0px 0px 0px 0px;
 	margin: 40px 30px 20px 30px;
 	<%=backgroundColor%>
-	border-radius
-	:
-	25px;
+	border-radius: 25px;
 }
 
 aside.left {
 	border: solid;
 	border-color: gray;
-	height: 2000px;
+    height: 2000px;
 	width: 570px;
 	float: left;
 	padding: 0px 0px 0px 0px;
 	margin: 40px 30px 20px 30px;
 	<%=backgroundColor%>
-	border-radius
-	:
-	25px;
+	border-radius: 25px;
 }
 
 aside.down {
 	border: solid;
 	border-color: gray;
-	height: 400px;
+    height: 400px;
 	width: 2150px;
 	float: left;
 	padding: 0px 0px 0px 0px;
 	margin: 0px 20px 20px 20px;
-	background-color:#777733;
-	border-radius:25px;
+	<%=backgroundColor%>
+	border-radius: 25px;
 }
 
 aside.right-up {
-	border: solid;
+border: solid;
 	border-color: gray;
 	width: 690px;
 	height: 800px;
 	float: right;
 	padding: 0px 0px 0px 0px;
 	margin: 60px 40px 0px 0px;
-	<%=
-	backgroundColor
-	%>
-	border-radius
-	:
-	25px;
+	<%=backgroundColor%>
+	border-radius: 25px;
 }
 
+
 aside.menu-fixed {
-	height: 240px;
+    height: 240px;
 	width: 2120px;
 	float: left;
 	padding: 0px 0px 0px 0px;
-	margin: 0px; 20 px 50px 50px; <%= backgroundColor %> border-radius :
-	25px;
-	top: 0;
+	margin: 0px; 20px 50px 50px;
+	<%=backgroundColor%>
+	border-radius: 25px;
+	top:0;
 }
 
 aside.menu {
-	height: 240px;
+    height: 240px;
 	width: 100%;
 	float: left;
 	padding: 0px 0px 0px 0px;
 	margin: 0px 20px 50px 0px;
-	<%=
-	backgroundColor
-	%>
-	border-radius
-	:
-	25px;
+	<%=backgroundColor%>
+	border-radius: 25px;
 }
 
 aside.left-up {
-	border: solid;
+border: solid;
 	border-color: gray;
 	width: 1400px;
-	height: 800px;
+	height: 2800px;
 	float: left;
 	padding: 0px 0px 0px 0px;
 	margin: 60px 0px 0px 40px;
-	<%=
-	backgroundColor
-	%>
-	border-radius
-	:
-	25px;
+	<%=backgroundColor%>
+	border-radius: 25px;
+	overflow: scroll;
 }
 
-h2.title { <%=borderColor %>
-	
+h2.title {
+	<%=borderColor%>
 }
 
 h2 {
-	font-family: BuxtonSketch;
-}
+			font-family: BuxtonSketch;
+		}
 
-article {
+
+article { 
 	clear: both;
 	overflow: auto;
 	width: 100%;
-	margin: 10px 10px 10px 10px; <%="background-color: white;"%>
+	margin: 10px 10px 10px 10px;
+	<%="background-color: white;"%>
 }
 
 body {
-	zoom: 100%;
-	color: white;
-	background-color: #777733;
+    zoom: 100%;
+	color: #CDC673;
+	background-color: #777733	;
 	/*background-color:  #8B7500;*/
 	/*background-color: #f9f8f6;*/
 	background-image: url(/NewssiteProject/imgs/<%=backgroundImage%>);
@@ -155,11 +154,13 @@ body {
 	line-height: 1.4em;
 	margin: 0px;
 	z-index: 2;
-	top: 0;
+	top:0;
+	
 }
+
 </style>
 
-<link href="/NewssiteProject/css/styleOfPages.css" rel="stylesheet">
+	<link href="/NewssiteProject/css/styleOfPages.css" rel="stylesheet">
 
 
 
@@ -219,23 +220,15 @@ body {
 	google.setOnLoadCallback(load);
 </script>
 
-<script>
-	function submitSearchWeb() {
-		document.getElementById("searchWeb").submit();
-	}
-</script>
-
 
 
 <style type="text/css">
-@import
-	url("http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.css")
-	;
+@import url("http://www.google.com/uds/solutions/dynamicfeed/gfdynamicfeedcontrol.css");
 </style>
 </head>
 <body>
 	<div
-		style="border: solid; border-color: gray; border-radius: 25px; height: 260px; width: 100%; background-color: #FFF68F; position: fixed; margin-top: -7em;">
+		style="border: solid; border-color: gray; border-radius: 25px; height: 260px; width: 100%; background-color: #FFF68F; position: fixed; margin-top: -5em;">
 		<aside class="menu">
 
 			<section class="menu-inner-fixed">
@@ -243,7 +236,7 @@ body {
 					<input class="m" type="image" src="/NewssiteProject/imgs/en1.png"
 						alt="Submit" width="400" height="150">
 				</form>
-				<form action="/NewssiteProject/news-short2">
+				<form action="http://localhost:8080/ServiceDemo/news-short.jsp">
 					<input class="m" type="image" src="/NewssiteProject/imgs/pol1.png"
 						alt="Submit" width="150" height="150">
 				</form>
@@ -286,22 +279,24 @@ body {
 
 	<div class="wrapper">
 
-		<div class="upup"></div>
+		<div class="upup">
+		</div>
 		<div class="up">
-			<font size="70">&nbsp;&nbsp;&nbsp;&nbsp; ДОБРЕ ДОШЛИ, Гост/Гостенка</font>
+			<font size="70">&nbsp;&nbsp;&nbsp;&nbsp; ДОБРЕ ДОШЛИ, не сте
+				влезли в профила си </font>
 
 
 		</div>
 
 		<header>
-			<div style="border: solid;border-color: gray;border-radius:100px;background-color: #CECC15; height: 362px; width: 2010px; padding-left:0px; margin-top: 50px; padding-top: 0px;margin-left:50px;">
-				<p
-					style=" font-family: BuxtonSketch; color: white; font-size: 220px; margin: 0px; 10 px; 10 px; 60 px; padding-left: 210px; padding-top: 190px;">EverydayNews.com</p>
-			</div>
-
+		
+		
+					<p style="font-family: BuxtonSketch; color: white; font-size:220px; margin:180px;10px;10px;0px; padding-left:100px;">EverydayNews.com</p>
+		
+	
 		</header>
-
-
+		
+		
 		<div class="down" style="border: solid; border-color: gray;">
 			<font size="70">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -321,91 +316,85 @@ body {
 
 		<aside class="left-up">
 
-			<h2 class="w3-center">
-				<font size="20">ИЗБРАНИ НОВИНИ</font>
+			<%
+			//if (request.getAttribute("news") != null) {
+				//Movie movie = (Movie)request.getAttribute("movie");
+			//	ArrayList<New> allNews0 = (ArrayList<New>) request.getAttribute("news");
+			//	ArrayList<New> allNews=NewDAO.getNewsFromFile();
+				AnnotationConfigApplicationContext context = 
+				new AnnotationConfigApplicationContext(NewArticleConfiguration.class);
+				ArrayList<New> allNews=context.getBean(NewArticleDAO.class).getNewsFromFile();
+				for (int index = 0; index < allNews.size(); index++) {
+		%>
+		<div
+			style="display: inline-block; border: solid;border-color: gray;background-color: #FFF68F; height: 400px; width: 1350px; margin: 10px; 10 px; 10 px; 10 px; float: center;">
+			<h2 style="margin:10px;10px;10px;10px;">
+				<%=allNews.get(index).getTitle()%>
 			</h2>
-
-			<div class="w3-content" style="width: 400px">
-
-				<div class="mySlides" style="width: 1200px; height: 600px;">
-					<img src="/NewssiteProject/imgs/red-stars1.jpg"
-						style="width: 1200px; height: 480px;">
-					<div>
-						<a href="http://www.space.com"><font size="800">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;КОСМОС</font></a>
-					</div>
-				</div>
-
-				<div class="mySlides" style="width: 1200px; height: 600px;">
-					<img src="/NewssiteProject/imgs/wheat1.jpg"
-						style="width: 1200px; height: 480px;">
-					<div>
-						<a href="https://en.wikipedia.org/wiki/Wheat"><font size="800">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ЖИТО</font></a>
-					</div>
-				</div>
-
-				<div id="new1" class="mySlides"
-					style="width: 1200px; height: 600px;">
-					<img src="/NewssiteProject/imgs/forest1.jpg"
-						style="width: 1200px; height: 480px;">
-					<div>
-						<a href="http://survivetheforest.com"><font size="800">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ГОРА</font></a>
-					</div>
-				</div>
-
-
+			<%	String defImg = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjjGW1qX3FXUjoOwjYHIJNL67GsNHFilGjbHao_iA5LQDZqUbM";
+				String image = allNews.get(index).getMainImage();
+						//if (image.equals("") || image.equals("No image for this new.")) {
+						//	image = "${pageContext.request.contextPath}/images/sport-news-default.jpg";
+						//}
+			%>
+			<div class="test" style="display: inline-block; width: 300px; height: 200px; float: left; margin:10px;10px;10px;10px;" >
+			
+			<img style="width: 400px; height: 300px; float: left;"  src="<%=image%>">
+			
 			</div>
+			
+
+				<!--  <img style="width: 300px; height: 200px; float: left;"  src="<%=image%>">-->
+			<%
+				String shortText = allNews.get(index).getText();
+						if (shortText.length() > 400) {
+							shortText = shortText.substring(0, 400) + "..........";
+						}
+						//New new1 = allNews.get(index);
+						//textZaModala=shortText;
+			%>
+			<p style="margin:10px;10px;10px;10px;">
+			<br>
+				<%=shortText%>
+			</p>
+			<!--  <form action='./ShowNew2' method='post'>-->
+			<form:form method="GET" action="/NewssiteProject/single-new2">
+			<input type="hidden" name="whichNewToShow" value="<%=allNews.get(index).getId()%>" />
+		<table>
+						
+		
+			<tr>
+				<td><input type="submit" value="Redirect Page" /></td>
+			</tr>
+		</table>
+	</form:form>
+			<form action='/NewssiteProject/single-new2' method='get'>
+				<input type="hidden" name="whichNewToShow" value="<%=allNews.get(index).getId()%>" />
+				<input style="border-radius: 25px; background-color: #FFF68F; float:right; margin:10px;20px;20px;10px; border-color: #8B8B00;"class="subscribe" type="submit" value="READ MORE >>>">
+					<!--  <a href="./ShowNew?export=<%=allNews.get(index).getTitle()%>">Export</a>-->
+					
+			</form>
+			<button id="<%=allNews.get(index).getId()%>"  onclick="openModalFunction(this)" class="modalBtn">Open Modal</button>
+			<!-- <a href="single-new.jsp">READ MORE >>></a> -->
+			<%
+				String showId = "";
+				session.setAttribute("whichToShow", showId);
+			%>
+		</div>
+		<%
+			}
+				context.close();
+			//}
+		%>
 
 		</aside>
 
 		<aside class="right-up">
 			<!--  <iframe width="400" height="400" style="border: none;"
 		src="http://output96.rssinclude.com/output?type=iframe&amp;id=1099968&amp;hash=acfd107628e325462cd6bbe615df114a"></iframe>-->
-			<iframe width="680" height="320" style="border: none;"
+			<iframe width="680" height="720" style="border: none;"
 				src="http://output50.rssinclude.com/output?type=iframe&amp;id=1099973&amp;hash=8d1d46f8c7b113b14b9c118ca1b047d8"></iframe>
-			<form
-				style="margin: 10px; 0 px; 0 px; 0 px; height: 150px; border: solid; border-color: gray; border-radius: 25px;"
-				action="/NewssiteProject/SearchWeb">
-				<input id="searchWeb" type="text" name="searchWeb"
-					style="margin: 40px; 20 px; 40 px; 40 px; font-size: 60px; float: left; width: 420px; height: 70px; border: solid; border-color: gray; border-radius: 25px;">
-				<input onclick="submitSearchWeb()"
-					style="margin: 25px;10px;10px;0px;" title="Search" id="reg"
-					class="reg" type="image" src="/NewssiteProject/imgs/mag2.png"
-					alt="Submit" width="100" height="100">
-			</form>
-
 		</aside>
-
-		<aside class="left">
-			<article class="earth">
-				<figure class="earth">
-					<img src="/NewssiteProject/imgs/e1.gif" alt="Earth" />
-				</figure>
-			</article>
-
-
-
-
-			<div id="body">
-				<div id="feedControl">Loading...</div>
-			</div>
-			<section class="search-for-events">
-				<h2>
-					<font size="20">АНКЕТА</font>
-				</h2>
-
-				<form class="inquiry">
-					<font size="20">Какво мислите за програмистите?</font><br> <br>
-					<input type="radio" name="gender" value="male" checked><font
-						size="20">Готини са. </font><br> <br> <br> <input
-						type="radio" name="gender" value="female"><font size="20">Много
-						са готини.</font><br> <br> <br> <input type="radio"
-						name="gender" value="other"><font size="20">Турбо
-						мега готини са.</font> <input class="select-theme" type="submit"
-						value="ГЛАСУВАЙ!">
-				</form>
-			</section>
-		</aside>
-
 
 		<aside class="right">
 			<section class="subscribe2">
@@ -450,8 +439,8 @@ body {
 					src="http://free.timeanddate.com/clock/i5dxi3b7/n238/szw400/szh400/hoc09f/hbw0/hfc09f/cf100/hnce1ead6/fas30/fdi66/mqc000/mql15/mqw4/mqd98/mhc000/mhl15/mhw4/mhd98/mmc000/mml10/mmw1/mmd98/hhs2/hms2"
 					width="400" height="400"></iframe>
 				<!--  https://www.timeanddate.com/clocks/free.html-->
-			</section>
-
+</section>
+						
 
 			<section class="draw-quotes">
 
@@ -474,71 +463,7 @@ body {
 
 
 		</aside>
-		<section class="about-the-center">
-
-			<h2>
-				Абонирайте1 се за <br> нашият бюлетин:
-			</h2>
-
-
-			<article>
-				<figure>
-					<img src="/NewssiteProject/imgs/itt1.png" alt="Woman Tree" />
-					<figcaption></figcaption>
-				</figure>
-				<p>
-					<br>ИТ ТАЛАНТИ ОТКРИВАТ УЧЕБЕН ЦЕНТЪР И В ПЛОВДИВ<br> <br>Супер
-					успешната фирма за подготовка на младши програмисти започва
-					обучения и в провинцията
-
-				</p>
-			</article>
-			<article>
-				<figure>
-					<img src="/NewssiteProject/imgs/vlak1.png" alt="Woman Tree" />
-					<figcaption></figcaption>
-				</figure>
-				<p>
-					<br>ПЪРВИЯТ ВЛАК СТРЕЛА В БЪЛГАРИЯ СВЪРЗВА ПЛЕВЕН И СОФИЯ<br>
-					<br> Плевенските студенти ликуват: вече ще си пътуват до вкъщи
-					за половин час
-				</p>
-			</article>
-			<article>
-				<figure>
-					<img src="/NewssiteProject/imgs/bgnt1.png" alt="Woman Tree" />
-					<figcaption></figcaption>
-				</figure>
-				<p>
-					<br>НИКОЛАЙ ТОМИТОВ Е НОВИЯТ ПРЕЗИДЕНТ НА РЕПУБЛИКА БЪЛГАРИЯ<br>
-					<br> Страната ни е вече в сигурни ръце, най-накрая човек,
-					който не лъже и не отлага ще я оглави
-				</p>
-			</article>
-
-		</section>
-
-		<aside class="middle">
-
-			<section class="subscribe">
-				<h2>
-					<font size="20">МОТИВИРАЩО ВИДЕО</font>
-				</h2>
-
-				<iframe width="800" height="550"
-					src="https://www.youtube.com/embed/5-sfG8BV8wU"></iframe>
-			</section>
-
-		</aside>
-
-		<aside class="middle">
-			<br> <br> <br> <br> <br> <br> <br>
-			<br> <br> <br> <br> <br> <br> <br>
-			<br> <br> <br> <br> <br> <br> <br>
-			<br> <br> <br>
-
-		</aside>
-
+	
 
 
 		<aside class="down">
@@ -578,7 +503,7 @@ body {
 
 
 		<footer>
-			<font size="70"> &copy; 2016 EverydayNews.com &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Mariq Ninova & Georgi Andreev</font>
+			<font size="70">&copy; 2016 Ежедневник.бг </font>
 		</footer>
 	</div>
 

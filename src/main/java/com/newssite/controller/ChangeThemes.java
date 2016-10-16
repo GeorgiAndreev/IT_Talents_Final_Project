@@ -24,7 +24,8 @@ public class ChangeThemes {
 		case "blue":
 			return "background-color: blue;";
 		case "gold":
-			return "background-color: #FFF68F;";
+			//return "background-color: #FFF68F;";
+			return "background-color: #CDC673;";
 		default:
 			return "background-color: red;";
 		}
