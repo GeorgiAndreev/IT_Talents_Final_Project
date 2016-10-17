@@ -34,6 +34,16 @@ public class ShowNewController{
 		//return "NewFile";
 		return "single-new";
 	}	
+	
+	@RequestMapping(value="/single-new-web", method = RequestMethod.GET)
+	public String showNewWeb(HttpServletRequest request) {
+		
+		String newIdToShow = request.getParameter("whichNewToShow");
+		request.setAttribute("newIdToShow", newIdToShow);
+		
+		//return "NewFile";
+		return "single-new-web";
+	}	
 
 	@RequestMapping(value="/single-new2", method = RequestMethod.GET)
 	public String showNew2(HttpServletRequest request) {

@@ -18,9 +18,9 @@ public class SearchController {
 		System.out.println();
 		System.out.println(searchWord);
 		System.out.println();
-	
-		model.addAttribute("text", "Hi !");
-		return "search-results";
+	request.setAttribute("searchWord", searchWord);
+		//return "search-results";
+	return "SearchResults";
 	}	
 	
 }
