@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Ежедневик.бг</title>
+<title>EverydayNews.com</title>
 
 
 <% String id = "gold";
@@ -288,7 +288,7 @@ body {
 
 		<div class="upup"></div>
 		<div class="up">
-			<font size="70">&nbsp;&nbsp;&nbsp;&nbsp; ДОБРЕ ДОШЛИ, Гост/Гостенка</font>
+			<font size="70">&nbsp;&nbsp;&nbsp;&nbsp; WELLCOME, Guest</font>
 
 
 		</div>
@@ -312,8 +312,8 @@ body {
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ЯКИЯТ
-				САЙТ ЗА НОВИНИ </font>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				THE COOL NEWSSITE </font>
 
 
 		</div>
@@ -322,7 +322,7 @@ body {
 		<aside class="left-up">
 
 			<h2 class="w3-center">
-				<font size="20">ИЗБРАНИ НОВИНИ</font>
+				<font size="20">RANDOM NEWS</font>
 			</h2>
 
 			<div class="w3-content" style="width: 400px">
@@ -360,8 +360,6 @@ body {
 		<aside class="right-up">
 			<!--  <iframe width="400" height="400" style="border: none;"
 		src="http://output96.rssinclude.com/output?type=iframe&amp;id=1099968&amp;hash=acfd107628e325462cd6bbe615df114a"></iframe>-->
-			<iframe width="680" height="320" style="border: none;"
-				src="http://output50.rssinclude.com/output?type=iframe&amp;id=1099973&amp;hash=8d1d46f8c7b113b14b9c118ca1b047d8"></iframe>
 			<form
 				style="margin: 10px; 0 px; 0 px; 0 px; height: 150px; border: solid; border-color: gray; border-radius: 25px;"
 				action="/NewssiteProject/SearchWeb">
@@ -372,6 +370,9 @@ body {
 					class="reg" type="image" src="/NewssiteProject/imgs/mag2.png"
 					alt="Submit" width="100" height="100">
 			</form>
+			<form action="/NewssiteProject/Register"><input title="REGISTER" id="reg" class="reg" type="image" src="/NewssiteProject/imgs/reg1.png" alt="Submit" width="160" height="160"></form>
+            <form action="/NewssiteProject/Login"><input title="LOGIN" id="login" class="log" type="image" src="/NewssiteProject/imgs/login2.png" alt="Submit" width="160" height="160"></form>
+			<iframe width="680" height="320" style="border: none;"src="http://output50.rssinclude.com/output?type=iframe&amp;id=1099973&amp;hash=8d1d46f8c7b113b14b9c118ca1b047d8"></iframe>
 
 		</aside>
 
@@ -390,7 +391,7 @@ body {
 			</div>
 			<section class="search-for-events">
 				<h2>
-					<font size="20">АНКЕТА</font>
+					<font size="20">QUEST</font>
 				</h2>
 
 				<form class="inquiry">
@@ -409,23 +410,7 @@ body {
 
 		<aside class="right">
 			<section class="subscribe2">
-				<form
-					style="cursor: url('/NewssiteProject/imgs/up-arrow.png'), pointer, default"
-					action="/NewssiteProject/jsp/login.jsp">
-					<input title="ВЛЕЗ В ПРОФИЛА СИ" id="login" class="log"
-						type="image" src="/NewssiteProject/imgs/login2.png" alt="Submit"
-						width="160" height="160">
-				</form>
-				<form action="/NewssiteProject/jsp/login.jsp">
-					<input title="РЕГИСТРИРАЙ СЕ" id="reg" class="reg" type="image"
-						src="/NewssiteProject/imgs/reg1.png" alt="Submit" width="160"
-						height="160">
-				</form>
-				<form>
-					<input title="КЪМ ГЛАВНАТА СТРАНИЦА" id="home" class="home"
-						type="image" src="/NewssiteProject/imgs/home1.gif" alt="Submit"
-						width="160" height="160">
-				</form>
+				
 				<form>
 					<input title="РАЗГЛЕДАЙ И КОМЕНТИРАЙ ТЕМИТЕ" id="paleta"
 						class="paleta" type="image"
@@ -457,7 +442,7 @@ body {
 
 
 				<h2>
-					Случайна новина:<br> <br>
+					TECHNOLOGY NEWS<br> <br>
 				</h2>
 
 
@@ -477,52 +462,19 @@ body {
 		<section class="about-the-center">
 
 			<h2>
-				Абонирайте1 се за <br> нашият бюлетин:
+				WEATHER
 			</h2>
 
-
-			<article>
-				<figure>
-					<img src="/NewssiteProject/imgs/itt1.png" alt="Woman Tree" />
-					<figcaption></figcaption>
-				</figure>
-				<p>
-					<br>ИТ ТАЛАНТИ ОТКРИВАТ УЧЕБЕН ЦЕНТЪР И В ПЛОВДИВ<br> <br>Супер
-					успешната фирма за подготовка на младши програмисти започва
-					обучения и в провинцията
-
-				</p>
-			</article>
-			<article>
-				<figure>
-					<img src="/NewssiteProject/imgs/vlak1.png" alt="Woman Tree" />
-					<figcaption></figcaption>
-				</figure>
-				<p>
-					<br>ПЪРВИЯТ ВЛАК СТРЕЛА В БЪЛГАРИЯ СВЪРЗВА ПЛЕВЕН И СОФИЯ<br>
-					<br> Плевенските студенти ликуват: вече ще си пътуват до вкъщи
-					за половин час
-				</p>
-			</article>
-			<article>
-				<figure>
-					<img src="/NewssiteProject/imgs/bgnt1.png" alt="Woman Tree" />
-					<figcaption></figcaption>
-				</figure>
-				<p>
-					<br>НИКОЛАЙ ТОМИТОВ Е НОВИЯТ ПРЕЗИДЕНТ НА РЕПУБЛИКА БЪЛГАРИЯ<br>
-					<br> Страната ни е вече в сигурни ръце, най-накрая човек,
-					който не лъже и не отлага ще я оглави
-				</p>
-			</article>
-
+<div id="cont_283d5572f2b299efdfebc2dd0cdbf824"><script type="text/javascript" async src="https://www.yourweather.co.uk/wid_loader/283d5572f2b299efdfebc2dd0cdbf824"></script></div>
+<div id="cont_8f37222d818dcafed3c63c64e14fc1ba"><script type="text/javascript" async src="https://www.yourweather.co.uk/wid_loader/8f37222d818dcafed3c63c64e14fc1ba"></script></div>
+			
 		</section>
 
 		<aside class="middle">
 
 			<section class="subscribe">
 				<h2>
-					<font size="20">МОТИВИРАЩО ВИДЕО</font>
+					<font size="20">MOTIVATIONAL VIDEO</font>
 				</h2>
 
 				<iframe width="800" height="550"
@@ -532,11 +484,7 @@ body {
 		</aside>
 
 		<aside class="middle">
-			<form action="/NewssiteProject/Register"><input title="РЕГИСТРИРАЙ СЕ" id="reg" class="reg" type="image" src="/NewssiteProject/imgs/reg1.png" alt="Submit" width="160" height="160"></form>
-<form action="/NewssiteProject/Login"><input title="ВЛЕЗ В ПРОФИЛА СИ" id="login" class="log" type="image" src="/NewssiteProject/imgs/login2.png" alt="Submit" width="160" height="160"></form>
-<form action="/NewssiteProject/UploadArticle"><input title="UPLOAD ARTICLE" id="login" class="log" type="image" src="/NewssiteProject/imgs/up4.png" alt="Submit" width="160" height="160"></form>
-
-
+			<br><br><br><br>
 		</aside>
 
 

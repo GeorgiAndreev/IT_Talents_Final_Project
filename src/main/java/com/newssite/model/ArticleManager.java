@@ -3,7 +3,6 @@ package com.newssite.model;
 import java.util.Collections;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-
 import com.newssite.model.ArticleDAO;
 
 public class ArticleManager {
@@ -27,6 +26,18 @@ public class ArticleManager {
 				instance = new ArticleManager();
 			}
 			return instance;
+		}
+		
+		public static void startOldNewsCleaner(){
+			Thread oldNewsCleaner = new Thread(new OldNewsCleaner());
+			oldNewsCleaner.setDaemon(true);
+			oldNewsCleaner.start();
+		}
+		
+		public static void startNewsDownloader(){
+			Thread newsLoader = new Thread(new NewsDownloader());
+			newsLoader.setDaemon(true);
+			newsLoader.start();
 		}
 		
 		

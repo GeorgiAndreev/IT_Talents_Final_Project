@@ -11,13 +11,25 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+//import com.news.model.email.EmailsManager;
+
+import com.newssite.model.ArticleManager;
 
 @Controller
 public class HelloController {
+	
+	static{
+		ArticleManager.startNewsDownloader();
+		ArticleManager.startOldNewsCleaner();
+		//ArticleManager.startNewsCommentsCounter();
+		//ArticleManager.startNewsLikesCounter();
+		//ArticleManager.startNewsReadingsCounter();
+		//EmailsManager.startNewsletterSender();
+		//EmailsManager.startUnverifiedAccountsCleaner();
+	}
 
 	@RequestMapping(value="/index", method = RequestMethod.GET)
-	public String sayHello(Model model) {
-		model.addAttribute("text", "Hi !");
+	public String sayHello() {
 		return "index";
 		
 	}	
