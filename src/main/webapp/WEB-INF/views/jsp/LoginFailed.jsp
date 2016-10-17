@@ -703,18 +703,47 @@ google.setOnLoadCallback(load);
 <div>YYYYYYYYYYYYYYY</div>
 <body>
 <div style="border:solid; border-color:gray; border-radius:25px; height:260px;width:100%;background-color: #FFF68F;position:fixed;margin-top:-5em;">
-<aside class="menu">
+		<aside class="menu">
 
 			<section class="menu-inner-fixed">
-<form action="/NewssiteProject/index"><input class="m" type="image" src="/NewssiteProject/imgs/en1.png" alt="Submit" width="400" height="150"></form>
-<form action="/NewssiteProject/news-short2"><input class="m" type="image" src="/NewssiteProject/imgs/pol1.png" alt="Submit" width="150" height="150"></form>
-<form action="/NewssiteProject/news-short2"><input class="m" type="image" src="/NewssiteProject/imgs/ball1.jpg" alt="Submit" width="150" height="150"></form>
-<form action="/NewssiteProject/news-short2"><input class="m" type="image" src="/NewssiteProject/imgs/tror1.png" alt="Submit" width="150" height="150"></form>
-<form action="/NewssiteProject/news-short2"><input class="m" type="image" src="/NewssiteProject/imgs/tech1.png" alt="Submit" width="150" height="150"></form>		
-<form action="/NewssiteProject/news-short2"><input class="m" type="image" src="/NewssiteProject/imgs/he1.png" alt="Submit" width="150" height="150"></form>		
-<form action="/NewssiteProject/news-short2"><input class="m" type="image" src="/NewssiteProject/imgs/culture1.png" alt="Submit" width="150" height="150"></form>		
-<form action="/NewssiteProject/news-short2"><input class="m" type="image" src="/NewssiteProject/imgs/smile0.jpg" alt="Submit" width="150" height="150"></form>		
-<form action="/NewssiteProject/index"><input class="m" type="image" src="/NewssiteProject/imgs/home0.jpg" alt="Submit" width="150" height="150"></form>
+				<form action="http://localhost:8080/ServiceDemo/news-short.jsp">
+					<input class="m" type="image" src="/NewssiteProject/imgs/en1.png"
+						alt="Submit" width="400" height="150">
+				</form>
+				<form action="/NewssiteProject/political">
+					<input class="m" type="image" src="/NewssiteProject/imgs/pol1.png"
+						alt="Submit" width="150" height="150">
+				</form>
+				<form action="/NewssiteProject/sport">
+					<input class="m" type="image" src="/NewssiteProject/imgs/ball1.jpg"
+						alt="Submit" width="150" height="150">
+				</form>
+				<form action="/NewssiteProject/ecological">
+					<input class="m" type="image" src="/NewssiteProject/imgs/tror1.png"
+						alt="Submit" width="150" height="150">
+				</form>
+				<form action="/NewssiteProject/technical">
+					<input class="m" type="image" src="/NewssiteProject/imgs/tech1.png"
+						alt="Submit" width="150" height="150">
+				</form>
+				<form action="/NewssiteProject/medicine">
+					<input class="m" type="image" src="/NewssiteProject/imgs/he1.png"
+						alt="Submit" width="150" height="150">
+				</form>
+				<form action="/NewssiteProject/cultural">
+					<input class="m" type="image"
+						src="/NewssiteProject/imgs/culture1.png" alt="Submit" width="150"
+						height="150">
+				</form>
+				<form action="/NewssiteProject/scientific">
+					<input class="m" type="image"
+						src="/NewssiteProject/imgs/sci1.jpg" alt="Submit" width="150"
+						height="150">
+				</form>
+				<form action="/NewssiteProject/index">
+					<input class="m" type="image" src="/NewssiteProject/imgs/home0.jpg"
+						alt="Submit" width="150" height="150">
+				</form>
 			</section>
 
 		</aside>

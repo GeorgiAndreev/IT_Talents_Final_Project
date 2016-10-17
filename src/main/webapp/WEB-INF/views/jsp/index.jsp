@@ -243,37 +243,37 @@ body {
 					<input class="m" type="image" src="/NewssiteProject/imgs/en1.png"
 						alt="Submit" width="400" height="150">
 				</form>
-				<form action="/NewssiteProject/news-short2">
+				<form action="/NewssiteProject/political">
 					<input class="m" type="image" src="/NewssiteProject/imgs/pol1.png"
 						alt="Submit" width="150" height="150">
 				</form>
-				<form action="http://localhost:8080/ServiceDemo/news-short2.jsp">
+				<form action="/NewssiteProject/sport">
 					<input class="m" type="image" src="/NewssiteProject/imgs/ball1.jpg"
 						alt="Submit" width="150" height="150">
 				</form>
-				<form action="/NewssiteProject/jsp/login.jsp">
+				<form action="/NewssiteProject/ecological">
 					<input class="m" type="image" src="/NewssiteProject/imgs/tror1.png"
 						alt="Submit" width="150" height="150">
 				</form>
-				<form action="/NewssiteProject/jsp/login.jsp">
+				<form action="/NewssiteProject/technical">
 					<input class="m" type="image" src="/NewssiteProject/imgs/tech1.png"
 						alt="Submit" width="150" height="150">
 				</form>
-				<form action="/NewssiteProject/jsp/login.jsp">
+				<form action="/NewssiteProject/medicine">
 					<input class="m" type="image" src="/NewssiteProject/imgs/he1.png"
 						alt="Submit" width="150" height="150">
 				</form>
-				<form action="/NewssiteProject/jsp/login.jsp">
+				<form action="/NewssiteProject/cultural">
 					<input class="m" type="image"
 						src="/NewssiteProject/imgs/culture1.png" alt="Submit" width="150"
 						height="150">
 				</form>
-				<form action="/NewssiteProject/jsp/login.jsp">
+				<form action="/NewssiteProject/scientific">
 					<input class="m" type="image"
-						src="/NewssiteProject/imgs/smile0.jpg" alt="Submit" width="150"
+						src="/NewssiteProject/imgs/sci1.jpg" alt="Submit" width="150"
 						height="150">
 				</form>
-				<form action="/NewssiteProject/jsp2/news-space7.jsp">
+				<form action="/NewssiteProject/index">
 					<input class="m" type="image" src="/NewssiteProject/imgs/home0.jpg"
 						alt="Submit" width="150" height="150">
 				</form>
@@ -532,10 +532,10 @@ body {
 		</aside>
 
 		<aside class="middle">
-			<br> <br> <br> <br> <br> <br> <br>
-			<br> <br> <br> <br> <br> <br> <br>
-			<br> <br> <br> <br> <br> <br> <br>
-			<br> <br> <br>
+			<form action="/NewssiteProject/Register"><input title="РЕГИСТРИРАЙ СЕ" id="reg" class="reg" type="image" src="/NewssiteProject/imgs/reg1.png" alt="Submit" width="160" height="160"></form>
+<form action="/NewssiteProject/Login"><input title="ВЛЕЗ В ПРОФИЛА СИ" id="login" class="log" type="image" src="/NewssiteProject/imgs/login2.png" alt="Submit" width="160" height="160"></form>
+<form action="/NewssiteProject/UploadArticle"><input title="UPLOAD ARTICLE" id="login" class="log" type="image" src="/NewssiteProject/imgs/up4.png" alt="Submit" width="160" height="160"></form>
+
 
 		</aside>
 

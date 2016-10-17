@@ -1,6 +1,8 @@
 <%@page import="com.newssite.controller.ChangeThemes"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ taglib prefix="c" 
+           uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -703,18 +705,47 @@ google.setOnLoadCallback(load);
 <div>YYYYYYYYYYYYYYY</div>
 <body>
 <div style="border:solid; border-color:gray; border-radius:25px; height:260px;width:100%;background-color: #FFF68F;position:fixed;margin-top:-5em;">
-<aside class="menu">
+		<aside class="menu">
 
 			<section class="menu-inner-fixed">
-<form action="/NewssiteProject/index"><input class="m" type="image" src="/NewssiteProject/imgs/en1.png" alt="Submit" width="400" height="150"></form>
-<form action="/NewssiteProject/news-short2"><input class="m" type="image" src="/NewssiteProject/imgs/pol1.png" alt="Submit" width="150" height="150"></form>
-<form action="/NewssiteProject/news-short2"><input class="m" type="image" src="/NewssiteProject/imgs/ball1.jpg" alt="Submit" width="150" height="150"></form>
-<form action="/NewssiteProject/news-short2"><input class="m" type="image" src="/NewssiteProject/imgs/tror1.png" alt="Submit" width="150" height="150"></form>
-<form action="/NewssiteProject/news-short2"><input class="m" type="image" src="/NewssiteProject/imgs/tech1.png" alt="Submit" width="150" height="150"></form>		
-<form action="/NewssiteProject/news-short2"><input class="m" type="image" src="/NewssiteProject/imgs/he1.png" alt="Submit" width="150" height="150"></form>		
-<form action="/NewssiteProject/news-short2"><input class="m" type="image" src="/NewssiteProject/imgs/culture1.png" alt="Submit" width="150" height="150"></form>		
-<form action="/NewssiteProject/news-short2"><input class="m" type="image" src="/NewssiteProject/imgs/smile0.jpg" alt="Submit" width="150" height="150"></form>		
-<form action="/NewssiteProject/index"><input class="m" type="image" src="/NewssiteProject/imgs/home0.jpg" alt="Submit" width="150" height="150"></form>
+				<form action="http://localhost:8080/ServiceDemo/news-short.jsp">
+					<input class="m" type="image" src="/NewssiteProject/imgs/en1.png"
+						alt="Submit" width="400" height="150">
+				</form>
+				<form action="/NewssiteProject/political">
+					<input class="m" type="image" src="/NewssiteProject/imgs/pol1.png"
+						alt="Submit" width="150" height="150">
+				</form>
+				<form action="/NewssiteProject/sport">
+					<input class="m" type="image" src="/NewssiteProject/imgs/ball1.jpg"
+						alt="Submit" width="150" height="150">
+				</form>
+				<form action="/NewssiteProject/ecological">
+					<input class="m" type="image" src="/NewssiteProject/imgs/tror1.png"
+						alt="Submit" width="150" height="150">
+				</form>
+				<form action="/NewssiteProject/technical">
+					<input class="m" type="image" src="/NewssiteProject/imgs/tech1.png"
+						alt="Submit" width="150" height="150">
+				</form>
+				<form action="/NewssiteProject/medicine">
+					<input class="m" type="image" src="/NewssiteProject/imgs/he1.png"
+						alt="Submit" width="150" height="150">
+				</form>
+				<form action="/NewssiteProject/cultural">
+					<input class="m" type="image"
+						src="/NewssiteProject/imgs/culture1.png" alt="Submit" width="150"
+						height="150">
+				</form>
+				<form action="/NewssiteProject/scientific">
+					<input class="m" type="image"
+						src="/NewssiteProject/imgs/sci1.jpg" alt="Submit" width="150"
+						height="150">
+				</form>
+				<form action="/NewssiteProject/index">
+					<input class="m" type="image" src="/NewssiteProject/imgs/home0.jpg"
+						alt="Submit" width="150" height="150">
+				</form>
 			</section>
 
 		</aside>
@@ -727,19 +758,16 @@ google.setOnLoadCallback(load);
 
 	<div class="wrapper">
 	
-	<div class="upup">
-			<h1>Cooltime House</h1>
-			 
-			
-		</div>
-	<div class="up">
-			<font size="70">&nbsp;&nbsp;&nbsp;&nbsp;
-			
-			ДОБРЕ ДОШЛИ, не сте влезли в профила си </font>
-			 
-			
-		</div >
 		
+	<div class="upup"></div>
+	<div class="up">
+	<c:set var="username" value="${username}" />
+			<font size="70">&nbsp;&nbsp;&nbsp;&nbsp;			
+		ДОБРЕ ДОШЛИ, <c:out value="${username}" />
+		 </font>		 		
+		</div >
+	 
+	
 		<!-- <header>
 			<h1>Cooltime House</h1>
 			 
@@ -783,13 +811,28 @@ google.setOnLoadCallback(load);
 
 		
 	<div class="register">
-     <form class="form-signin" action="article-upload"  enctype="multipart/form-data" method="POST">       
+     <form class="form-signin"  style="height:700px;" action="article-upload"  enctype="multipart/form-data" method="POST">       
       <h2 class="form-signin-heading">Please insert article:</h2>
-      <input type="text" class="form-control" name="title" placeholder="Title" required="" autofocus="" />
-       <input type="text" class="form-control" name="subtitle" placeholder="Subtitle" required="" autofocus="" />
-         <input type="text" class="form-control" name="text" placeholder="Text" required="" autofocus="" />
-          <input type="file" class="form-control" name="article_photo" 	placeholder="Article pic"/>
-    
+       <textarea rows="3" cols="32" name="title" placeholder="Title" style="font-size: 20px; background-color: #FFF68F;
+        float: left; display: inline-block; margin-top: 20px;"></textarea>
+           <textarea rows="3" cols="32" name="subtitle" placeholder="Subtitle" style="font-size: 20px; background-color: #FFF68F;
+        float: left; display: inline-block; margin-top: 20px;"></textarea>
+        <textarea rows="3" cols="32" name="text" placeholder="Text" style="font-size: 20px; background-color: #FFF68F;
+        float: left; display: inline-block; margin-top: 20px;"></textarea><br><br><br>
+       <label style="font-size: 20px; margin-top: 30px; margin-bottom: 30px;"> Select category</label>
+       <select name="category" style="font-size: 25px;">
+       <option value="political">Political</option>
+       <option value="sport">Sport</option>
+       <option value="ecological">Ecological</option>
+       <option value="technical">Technical</option>
+       <option value="medicine">Medicine</option>
+       <option value="cultural">Cultural</option>
+       <option value="scientific">Scientific</option>
+       </select>      
+       <br>
+        <input type="file" class="form-control" name="article_photo" 	placeholder="Article pic"/>
+        <input type="text" style="display: none;"  name="user_id" value=<%=session.getAttribute("user_id") %>/>
+       <br>
        <button class="btn btn-lg btn-primary btn-block" type="submit" onclick="Window()">Create</button>
          
     </form>

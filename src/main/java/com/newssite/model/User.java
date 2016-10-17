@@ -3,21 +3,24 @@ package com.newssite.model;
 import java.io.InputStream;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import com.newssite.model.UserDAO;
 
 public class User {
 
 	private static final int MIN_PASSWORD_SIZE = 6;
 	private static final int MIN_USERNAME_SIZE = 4;
 	private String username;
-	private String name;
+	private String first_name;
+	private String last_name;
 	private String password;
 	private String email;
 	private String address;
 	private String profilePic;//file name of the profile pic on server dir
 	
-	public User(String username, String name, String password, String email, String address, String profilePic) {
+	public User(String username, String first_name,String last_name, String password, String email, String address, String profilePic) {
 		this.username = username;
-		this.name = name;
+		this.first_name = first_name;
+		this.last_name = last_name;
 		this.password = password;
 		this.email = email;
 		this.address = address;
@@ -32,8 +35,12 @@ public class User {
 		return username;
 	}
 	
-	public String getName() {
-		return name;
+	public String getFirstName() {
+		return first_name;
+	}
+	
+	public String getLastName() {
+		return last_name;
 	}
 
 	public String getPassword() {
@@ -67,13 +74,21 @@ public class User {
 		String emailPattern = "^[\\w!#$%&’*+/=?`{|}~^-]+(?:\\.[\\w!#$%&’*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
 		Pattern p = Pattern.compile(emailPattern);
 		Matcher m = p.matcher(email);
-		return m.matches();
+		if (!m.matches()) {
+			return false;
+		}
+		if (UserDAO.checkIfEmailIsUnique(email)==true) {
+			return true;
+		}
+		return false;
+		
+		
 	}
 
 
 	private static boolean isValidUsername(String username) {
-
-		if (username != null && username.length() >= MIN_USERNAME_SIZE && username.matches("[A-Za-z0-9]+")) {
+		if (username != null && username.length() >= MIN_USERNAME_SIZE && username.matches("[A-Za-z0-9]+")
+				&& UserDAO.checkIfUsernameIsUnique(username)==true) {
 			return true;
 		}
 		return false;
@@ -95,8 +110,9 @@ public class User {
 		return matcher.matches();
 	}
 	
-	public static boolean isValidUser(String username,String name, String password, String email, String address){
-		if(User.isValidUsername(username)==true && User.isValidName(name)==true && User.isValidPassword(password)==true &&
+	public static boolean isValidUser(String username,String first_name,String last_name, String password, String email, String address){
+		if(User.isValidUsername(username)==true && User.isValidName(first_name)==true && 
+				User.isValidName(last_name)==true && User.isValidPassword(password)==true &&
 				User.isValidEmail(email)==true && User.isValidateAddress(address)==true){
 			return true;
 		}
@@ -105,9 +121,11 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", name=" + name + ", password=" + password + ", email=" + email
-				+ ", address=" + address + ", profilePic=" + profilePic + "]";
+		return "User [username=" + username + ", first_name=" + first_name + ", last_name=" + last_name + ", password="
+				+ password + ", email=" + email + ", address=" + address + ", profilePic=" + profilePic + "]";
 	}
+
+	
 	
 	
 	

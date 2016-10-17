@@ -30,8 +30,10 @@ public class ArticleManager {
 		}
 		
 		
-		public void createArticle(String title, String subtitle, String articlePic,String text){
+		public void createArticle(String title, String subtitle, String articlePic,String text,int user_id,String category){
 			Article article = new Article(title, subtitle, articlePic, text);
+			article.setUser_id(user_id);
+			article.setCategory(category);
 			allArticles.put(title, article);
 			ArticleDAO.getInstance().saveArticle(article);
 		}

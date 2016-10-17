@@ -28,46 +28,21 @@ public class RegisterController {
 	@RequestMapping(value = "/Register", method = RequestMethod.GET)
 	public String sayHello(Model model) {
 		model.addAttribute("text", "Hi !");
-		model.addAttribute(new Product());
 		return "Register";
 	}
 	
-	/*protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		String password2 = request.getParameter("password2");
-		String name = request.getParameter("name");
-		String email = request.getParameter("email");
-		String address = request.getParameter("address");
-		Part profilePic = request.getPart("profilePic");//handles data from <input type=file name=profilePic>
-		InputStream profilePicStream = profilePic.getInputStream();
-		
-		//TODO validate data and modify valid property accordingly
-		boolean valid = true;
-		if(valid){
-			File dir = new File("userProfilePics");
-			if(!dir.exists()){
-				dir.mkdir();
-			}
-			File profilePicFile = new File(dir, username+"-profile-pic."+ profilePic.getContentType().split("/")[1]);
-			System.out.println("Try to save file with name: " + profilePicFile.getName());
-			System.out.println("abs. path = " + profilePicFile.getAbsolutePath());
-			Files.copy(profilePicStream, profilePicFile.toPath());
-			UsersManager.getInstance().regUser(username, name, password2, address, email, profilePicFile.getName());
-			RequestDispatcher view = request.getRequestDispatcher("index.html");
-			view.forward(request, response);
-		}
-	}
-	 * */
+
+	
 
 	@RequestMapping(value = "/Register", method = RequestMethod.POST)
-	public String reg(Model model, @ModelAttribute("username") String username, @ModelAttribute("name") String name,
+	public String reg(Model model, @ModelAttribute("username") String username, 
+			@ModelAttribute("first_name") String first_name,@ModelAttribute("last_name") String last_name,
 			@ModelAttribute("password") String password,@ModelAttribute("password2") String password2,
 			@ModelAttribute("email") String email,@ModelAttribute("address") String address, 
 			@ModelAttribute("profilePic") Part profilePic,
 			MultipartHttpServletRequest request) throws IOException {
 
-		if (User.isValidUser(username, name, password2, email, address)) {
+		if (User.isValidUser(username, first_name,last_name,password2, email, address)) {
 			InputStream profilePicStream = profilePic.getInputStream();
 			
 			//TODO validate data and modify valid property accordingly
@@ -81,7 +56,7 @@ public class RegisterController {
 				System.out.println("Try to save file with name: " + profilePicFile.getName());
 				System.out.println("abs. path = " + profilePicFile.getAbsolutePath());
 				Files.copy(profilePicStream, profilePicFile.toPath());
-				UsersManager.getInstance().regUser(username, name, password2, address, email, profilePicFile.getName());
+				UsersManager.getInstance().regUser(username, first_name,last_name, password2, address, email, profilePicFile.getName());
 
 			}
 				return "Login";

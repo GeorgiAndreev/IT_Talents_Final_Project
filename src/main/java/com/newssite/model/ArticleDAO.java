@@ -26,7 +26,7 @@ private static ArticleDAO instance;
 		Set<Article> articles = new HashSet<Article>();
 		try {
 			Statement st = DBManager.getInstance().getConnection().createStatement();
-			ResultSet resultSet = st.executeQuery("SELECT title, subtitle, article_pohoto, text FROM user.article;");
+			ResultSet resultSet = st.executeQuery("SELECT title, subtitle, article_photo, text FROM everydaynews.article;");
 			while(resultSet.next()){
 				articles.add(new Article( resultSet.getString("title"),
 									resultSet.getString("subtitle"),
@@ -43,12 +43,15 @@ private static ArticleDAO instance;
 	}
 	
 	
+
+	
+	
 	public static Article getArticle(String title){
 		Article currentArticle= new Article();
 		try {
 			Statement st = DBManager.getInstance().getConnection().createStatement();
 			ResultSet resultSet = st.executeQuery("SELECT title, subtitle, article_photo,text "
-					+ "FROM user.article where title='"+title+"';");
+					+ "FROM everydaynews.article where title='"+title+"';");
 			while(resultSet.next()){
 				currentArticle=new Article(	resultSet.getString("title"),
 									resultSet.getString("subtitle"),
@@ -66,11 +69,13 @@ private static ArticleDAO instance;
 	
 	public void saveArticle(Article article){
 		try {
-			PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement("INSERT INTO user.article (title, subtitle, article_photo,text) VALUES (?, ?, ?,?);");
+			PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement("INSERT INTO everydaynews.article (title, subtitle, article_photo,text,user_id,categories) VALUES (?, ?, ?,?,?,?);");
 			st.setString(1, article.getTitle());
 			st.setString(2, article.getSubtitle());
 			st.setString(3, article.getArticlePic());
 			st.setString(4, article.getText());
+			st.setInt(5, article.getUser_id());
+			st.setString(6, article.getCategory());
 			st.executeUpdate();
 			System.out.println("Article added successfully");
 		} catch (SQLException e) {

@@ -10,7 +10,6 @@ public class WeatherController {
 	@RequestMapping(value="/Weather", method = RequestMethod.GET)
 	public String sayHello(Model model) {
 		model.addAttribute("text", "Hi !");
-		model.addAttribute(new Product());
 		return "weather";
 		
 	}

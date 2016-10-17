@@ -28,10 +28,11 @@ public class UserDAO {
 		try {
 			Statement st = DBManager.getInstance().getConnection().createStatement();
 			ResultSet resultSet = st
-					.executeQuery("SELECT username, name, password, email, address, profilePic FROM user.user;");
+					.executeQuery("SELECT username, first_name,last_name, password, email, address, profilePic FROM everydaynews.user;");
 			while (resultSet.next()) {
-				users.add(new User(resultSet.getString("username"), resultSet.getString("name"),
-						resultSet.getString("password"), resultSet.getString("email"), resultSet.getString("address"),
+				users.add(new User(resultSet.getString("username"), resultSet.getString("first_name"),
+						resultSet.getString("last_name"),resultSet.getString("password"), 
+						resultSet.getString("email"), resultSet.getString("address"),
 						resultSet.getString("profilePic")));
 			}
 		} catch (SQLException e) {
@@ -46,12 +47,12 @@ public class UserDAO {
 		User currentUser = new User();
 		try {
 			Statement st = DBManager.getInstance().getConnection().createStatement();
-			ResultSet resultSet = st.executeQuery("SELECT username, name, password, email, address, profilePic "
-					+ "FROM user.user where username='" + username + "'and password='" + password + "';");
+			ResultSet resultSet = st.executeQuery("SELECT username, first_name,last_name, password, email, address, profilePic "
+					+ "FROM everydaynews.user where username='" + username + "'and password=md5('" + password + "');");
 			while (resultSet.next()) {
-				currentUser = new User(resultSet.getString("username"), resultSet.getString("name"),
-						resultSet.getString("password"), resultSet.getString("email"), resultSet.getString("address"),
-						resultSet.getString("profilePic"));
+				currentUser = new User(resultSet.getString("username"), resultSet.getString("first_name"),
+						resultSet.getString("last_name"),resultSet.getString("password"), resultSet.getString("email"), 
+						resultSet.getString("address"),resultSet.getString("profilePic"));
 			}
 		} catch (SQLException e) {
 			System.out.println("Oops, cannot make statement to get user.");
@@ -65,13 +66,14 @@ public class UserDAO {
 		
 		try {
 			PreparedStatement st = DBManager.getInstance().getConnection().prepareStatement(
-			"INSERT INTO user.user (username, name, password, email, address, profilePic) VALUES (?, ?, ?, ?, ?, ?);");
+			"INSERT INTO everydaynews.user (username, first_name,last_name, password, email, address, profilePic) VALUES (?, ?, ?, md5(?), ?, ?,?);");
 			st.setString(1, user.getUsername());
-			st.setString(2, user.getName());
-			st.setString(3, user.getPassword());
-			st.setString(4, user.getEmail());
-			st.setString(5, user.getAddress());
-			st.setString(6, user.getProfilePic());
+			st.setString(2, user.getFirstName());
+			st.setString(3, user.getLastName());
+			st.setString(4, user.getPassword());
+			st.setString(5, user.getEmail());
+			st.setString(6, user.getAddress());
+			st.setString(7, user.getProfilePic());
 			st.executeUpdate();
 			System.out.println("User added successfully");
 		} catch (SQLException e) {
@@ -80,12 +82,41 @@ public class UserDAO {
 		}
 
 	}
+	
+	public static boolean checkIfEmailIsUnique(String email) {
+		try {
+			Statement st = DBManager.getInstance().getConnection().createStatement();
+			ResultSet resultSet = st.executeQuery("Select user_id from everydaynews.user where email='" + email + "';");
+			if(resultSet.next()){
+				return false;
+			}
 
-	public int getId(String username) {
+		} catch (SQLException e) {
+			System.out.println("Oops, cannot make statement to get user email.");
+		}
+		return true;
+	}
+	
+	public static boolean checkIfUsernameIsUnique(String username) {
+		try {
+			Statement st = DBManager.getInstance().getConnection().createStatement();
+			ResultSet resultSet = st.executeQuery("Select user_id from everydaynews.user where username='" + username + "';");
+			if(resultSet.next()){
+				return false;
+			}
+
+		} catch (SQLException e) {
+			System.out.println("Oops, cannot make statement to get username.");
+		}
+		return true;
+	}
+	
+
+	public static int getId(String username) {
 		int id = 0;
 		try {
 			Statement st = DBManager.getInstance().getConnection().createStatement();
-			ResultSet resultSet = st.executeQuery("Select user_id from user.user where username='" + username + "';");
+			ResultSet resultSet = st.executeQuery("Select user_id from everydaynews.user where username='" + username + "';");
 			while (resultSet.next()) {
 				id = resultSet.getInt("user_id");
 			}

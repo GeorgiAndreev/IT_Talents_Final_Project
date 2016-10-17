@@ -25,10 +25,25 @@ public class UsersManager {
 		return registerredUsers.get(username);
 	}
 	
+	public String MD5(String md5) {
+		   try {
+		        java.security.MessageDigest md = java.security.MessageDigest.getInstance("MD5");
+		        byte[] array = md.digest(md5.getBytes());
+		        StringBuffer sb = new StringBuffer();
+		        for (int i = 0; i < array.length; ++i) {
+		          sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1,3));
+		       }
+		        return sb.toString();
+		    } catch (java.security.NoSuchAlgorithmException e) {
+		    }
+		    return null;
+		}
+	
 	public boolean hasUser(String username, String password) {
+		String password2=MD5(password);
 		if (registerredUsers != null) {
 			if (registerredUsers.containsKey(username)) {
-				if (registerredUsers.get(username).getPassword().equals((password))) {
+				if (registerredUsers.get(username).getPassword().equals((password2))) {
 					return true;
 				}
 			}
@@ -52,9 +67,9 @@ public class UsersManager {
 		return registerredUsers.get(username).getPassword().equals(password);
 	}
 	
-	public void regUser(String username, String name, String password, String address, String email, String profilePic){
-		if(User.isValidUser(username, name, password, email, address)){
-		User user = new User(username,name, password, email, address, profilePic);
+	public void regUser(String username, String first_name,String last_name, String password, String address, String email, String profilePic){
+		if(User.isValidUser(username, first_name,last_name, password, email, address)){
+		User user = new User(username, first_name,last_name, password, email, address, profilePic);
 		registerredUsers.put(username, user);
 		UserDAO.getInstance().saveUser(user);
 		}

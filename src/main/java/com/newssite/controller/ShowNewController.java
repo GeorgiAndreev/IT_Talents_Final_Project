@@ -24,14 +24,23 @@ import com.newssite.model.New;
  */
 @Controller
 public class ShowNewController{
-
-	@RequestMapping(value="/single-new2", method = RequestMethod.GET)
-	public String sayBye(HttpServletRequest request) {
-		//request.setAttribute("Name", "Bitche");
+	
+	@RequestMapping(value="/single-new", method = RequestMethod.GET)
+	public String showNew(HttpServletRequest request) {
+		
 		String newIdToShow = request.getParameter("whichNewToShow");
 		request.setAttribute("newIdToShow", newIdToShow);
 		
+		//return "NewFile";
+		return "single-new";
+	}	
 
+	@RequestMapping(value="/single-new2", method = RequestMethod.GET)
+	public String showNew2(HttpServletRequest request) {
+		
+		String newIdToShow = request.getParameter("whichNewToShow");
+		request.setAttribute("newIdToShow", newIdToShow);
+		
 		//return "NewFile";
 		return "single-new2";
 	}	

@@ -20,7 +20,6 @@ public class SearchController {
 		System.out.println();
 	
 		model.addAttribute("text", "Hi !");
-		model.addAttribute(new Product());
 		return "search-results";
 	}	
 	

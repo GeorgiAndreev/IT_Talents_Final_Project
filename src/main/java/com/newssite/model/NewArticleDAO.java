@@ -14,9 +14,14 @@ import java.io.StringReader;
 import java.io.Writer;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.tomcat.jni.File;
 
@@ -31,6 +36,33 @@ public class NewArticleDAO {
 	
 	public static ArrayList<New> allNews = new ArrayList<New>();
 	public static ArrayList<New> allNewsFromFile = new ArrayList<New>();
+	
+	public static ArrayList<Article> allSportNews = new ArrayList<Article>();
+	
+	public ArrayList<Article> getAllArticlesByCategory(String category){
+		ArrayList<Article> articles = new ArrayList<Article>();
+		try {
+			Statement st = DBManager.getInstance().getConnection().createStatement();
+			ResultSet resultSet = st.executeQuery(
+			"SELECT article_id,title, subtitle, article_photo, text FROM everydaynews.article where categories='"+category+"';");
+			while(resultSet.next()){
+				int id= resultSet.getInt("article_id");
+				Article article= new Article(resultSet.getString("title"),
+						resultSet.getString("subtitle"),
+						resultSet.getString("article_photo"),
+						resultSet.getString("text")
+						);
+				article.setId(id);
+				articles.add(article);
+				allSportNews.add(article);
+			}
+		} catch (SQLException e) {
+			System.out.println("Oops, cannot make statement to get all articles.");
+			return articles;
+		}
+		System.out.println("Article loaded successfully");
+		return articles;
+	}
 	
 	public ArrayList<New> getNewsFromFile(){
 		ArrayList<New> news = new ArrayList<New>();
@@ -330,6 +362,8 @@ public class NewArticleDAO {
 		}
 		return null;
 	}
+	
+	
 	
 	/*public void readApp(JsonReader jsonReader) throws IOException{
 	    jsonReader.beginObject();

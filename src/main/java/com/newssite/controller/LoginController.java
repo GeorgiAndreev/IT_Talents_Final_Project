@@ -19,7 +19,6 @@ public class LoginController {
 	@RequestMapping(value="/Login", method = RequestMethod.GET)
 	public String sayHello(Model model) {
 		model.addAttribute("text", "Hi !");
-		model.addAttribute(new Product());
 		return "Login";		
 	}
 	
@@ -33,9 +32,9 @@ public class LoginController {
 			HttpSession session = request.getSession(true);
 			session.setMaxInactiveInterval(60 * 60);
 			session.setAttribute("username", user.getUsername());
+			session.setAttribute("user_id", UserDAO.getId(username));
 			model.addAttribute(user);
 		    User userr= UserDAO.getUser(username, password);
-			//System.out.println(userr);
 			request.setAttribute("user", userr);
 			request.setAttribute("username", username);
 			return "loged";

@@ -760,7 +760,7 @@ google.setOnLoadCallback(load);
 			
 			<% for(User u : UsersManager.getInstance().getAllUsers().values()){  %>
 				<tr>
-					<td><%= u.getName() %></td>
+					<td><%= u.getFirstName() %></td>
 					<td><%= u.getUsername() %></td>
 					<td><%= u.getPassword() %></td>
 					<td><%= u.getAddress() %></td>
@@ -768,7 +768,7 @@ google.setOnLoadCallback(load);
 					<td>
 						<form action="ProfileServlet" method="POST">
 							<input type="submit" value="View profile">
-							<input type="hidden" value="<%= u.getName() %>">
+							<input type="hidden" value="<%= u.getFirstName() %>">
 						</form>
 					</td>
 				</tr>

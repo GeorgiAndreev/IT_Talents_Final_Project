@@ -23,7 +23,6 @@ public class CommentsController {
 		//System.out.println(test);
 		//System.out.println("uuuuuuuuuuuuuuuuuuuuuuuuuuuu");
 		model.addAttribute("text", "Hi !");
-		model.addAttribute(new Product());
 		return "test";
 	}	
 	
