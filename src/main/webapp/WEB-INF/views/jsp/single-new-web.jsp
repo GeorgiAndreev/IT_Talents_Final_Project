@@ -59,7 +59,7 @@ div.comment {
 							NewArticleConfiguration.class);
 					//ArrayList<New> allNews = NewDAO.allNewsFromFile;
 					//ArrayList<New> allNews = NewDAO.getNewsFromFile();
-					ArrayList<New> allNews = (ArrayList)context.getBean(NewArticleDAO.class).allNews;
+					ArrayList<New> allNews = (ArrayList)context.getBean(NewArticleDAO.class).allNewsBySearchWord;
 					context.close();
 					//out.print( allNews);out.print( allNews);out.print( allNews);
 					for (int index = 0; index < allNews.size(); index++) {

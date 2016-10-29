@@ -151,8 +151,20 @@ body {
 
 <link href="/NewssiteProject/css/styleOfPages.css" rel="stylesheet">
 
-
-
+<script>
+function validateForm() {
+    var searchInput = document.forms["searchWebForm"]["searchWeb"].value;
+    var regex = /^([a-zA-Z0-9 ]+)$/;
+    if (searchInput == null || searchInput == "") {
+        alert("Field must be filled out!");
+        return false;
+    }
+    if (!regex.test(searchInput)) {
+        alert("Invalid search criteria! Only letters, numbers and intervals allowed.");
+        return false;
+    }
+}
+</script>
 
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
@@ -351,8 +363,8 @@ body {
 			<!--  <iframe width="400" height="400" style="border: none;"
 		src="http://output96.rssinclude.com/output?type=iframe&amp;id=1099968&amp;hash=acfd107628e325462cd6bbe615df114a"></iframe>-->
 			<form
-				style="margin: 10px; 0 px; 0 px; 70 px; height: 150px; border: solid; border-color: gray; border-radius: 25px;"
-				action="/NewssiteProject/SearchWeb">
+			name="searchWebForm"	style="margin: 10px; 0 px; 0 px; 70 px; height: 150px; border: solid; border-color: gray; border-radius: 25px;"
+				action="/NewssiteProject/SearchWeb" onsubmit="return validateForm()" >
 				<input id="searchWeb" type="text" name="searchWeb"
 					style="margin: 40px; 20 px; 40 px; 40 px; font-size: 60px; float: left; width: 420px; height: 70px; border: solid; border-color: gray; border-radius: 25px;">
 				<input onclick="submitSearchWeb()"

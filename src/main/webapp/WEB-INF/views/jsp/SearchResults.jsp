@@ -65,6 +65,10 @@ background-image: url("https://s4.postimg.org/f4u1w2b7x/news.png");
 </style>
 </head>
 <body style="background-color: #CDC673;">
+<form action="/NewssiteProject/index" style="position:fixed;">
+					<input class="m" type="image" src="/NewssiteProject/imgs/en1.png"
+						alt="Submit" width="400" height="150">
+				</form>
 	<div style="margin-left:500px;">
 <%!public String textZaModala="Teeeeeekst na novina."; %>
 
@@ -144,7 +148,7 @@ background-image: url("https://s4.postimg.org/f4u1w2b7x/news.png");
 		
 		
 		<!-- Trigger/Open The Modal -->
-<button id="myBtn">Open Modal</button>
+<!--<button id="myBtn">Open Modal</button>-->
 
 <!-- The Modal -->
 <div id="myModal" class="modal">

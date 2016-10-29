@@ -35,6 +35,7 @@ import com.google.gson.stream.JsonReader;
 public class NewArticleDAO {
 	
 	public static ArrayList<New> allNews = new ArrayList<New>();
+	public static ArrayList<New> allNewsBySearchWord = new ArrayList<New>();
 	public static ArrayList<New> allNewsFromFile = new ArrayList<New>();
 	
 	public static ArrayList<Article> allSportNews = new ArrayList<Article>();
@@ -114,16 +115,18 @@ public class NewArticleDAO {
 		
 					return allNewsFromFile;
         } catch(Exception e){
-        	
+        	e.printStackTrace();
+			//throw new Exception(e.getMessage());
         }
        return null;
 	}
 
 	public List<New> getNewsByTitle(String query) throws Exception {
-		ArrayList<New> news = new ArrayList<New>();
+		//ArrayList<New> news = new ArrayList<New>();
 		HttpURLConnection connection = null;
 		query = query.replace(' ', '+');
 		try {
+			allNewsBySearchWord.clear();
 			connection = (HttpURLConnection) new URL("https://webhose.io/search?token=8717bcce-e4bc-408b-9067-a021896e8d75&format=json&q=" + query +"%20language%3A(english)")
 													.openConnection();
 
@@ -151,18 +154,12 @@ public class NewArticleDAO {
 					      buf.write((byte) result1);
 					      result1 = bis.read();
 					  }
-					  String text = buf.toString();
-					
-					
-					
-					
-					
+					  String text = buf.toString();		
 					//  JsonObject result = (JsonObject) new JsonParser().parse(json);
 					System.out.println(result);
 					       JsonArray posts = result.getAsJsonArray("posts");
 					      // posts.size();
-					//JsonObject jsonNew1 = (JsonObject)posts.get(0);
-					       
+					//JsonObject jsonNew1 = (JsonObject)posts.get(0);			       
 					       int count = 0;
 					for (Iterator<JsonElement> it = posts.iterator(); it.hasNext();) {
 						count++;
@@ -189,14 +186,11 @@ public class NewArticleDAO {
 						}
 						//news.add(new New(jsonNew.get("title").getAsString(), jsonNew.get("text").getAsString(), jsonNew.get("main_image").getAsString()));
 						if (jsonNew.get("title").getAsString().length() > 10 && jsonNew.get("text").getAsString().length() > 10) {
-							allNews.add(new New(jsonNew.get("title").getAsString(), jsonNew.get("text").getAsString(), mainImage));
-						}
-	
-						
+							allNewsBySearchWord.add(new New(jsonNew.get("title").getAsString(), jsonNew.get("text").getAsString(), mainImage));
+						}			
 					}
 
-					return allNews;
-					
+					return allNewsBySearchWord;			
 					
 				}
 			}
