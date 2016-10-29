@@ -344,14 +344,14 @@ aside.left-up {
 border: solid;
 	border-color: gray;
 	width: 1600px;
-	height: 800px;
+	height: 1400px;
 	float: left;
 	padding: 0px 0px 0px 0px;
 	margin: 60px 0px 0px 40px;
 	<%=backgroundColor%>
 	background-image: url(/NewssiteProject/imgs/background.jpg);
 	 background-repeat: no-repeat;
-	 background-size: 1600px 800px;
+	 background-size: 1600px 1400px;
 	border-radius: 25px;
 }
 
@@ -702,13 +702,13 @@ google.load("feeds", "1");
 google.setOnLoadCallback(load);
 </script>
 </head>
-<div>YYYYYYYYYYYYYYY</div>
+<div></div>
 <body>
-<div style="border:solid; border-color:gray; border-radius:25px; height:260px;width:100%;background-color: #FFF68F;position:fixed;margin-top:-5em;">
+<div style="border:solid; border-color:gray; border-radius:25px; height:260px;width:100%;background-color: #FFF68F;position:fixed;margin-top:-7.5em;">
 		<aside class="menu">
 
-			<section class="menu-inner-fixed">
-				<form action="http://localhost:8080/ServiceDemo/news-short.jsp">
+			<section class="menu-inner-fixed" style="zoom:125%">
+			    <form action="/NewssiteProject/index">
 					<input class="m" type="image" src="/NewssiteProject/imgs/en1.png"
 						alt="Submit" width="400" height="150">
 				</form>
@@ -750,76 +750,36 @@ google.setOnLoadCallback(load);
 
 		</aside>
 </div>
-<div style="border:solid; border-color:gray; border-radius:25px; float:left;height:100%;width:500px;background-color: #CDC673; position:fixed;margin-top:180px;"></div>
-<div style="color:white;border:solid; border-color:gray; border-radius:25px;height:100%;width:500px;background-color: #CDC673; position:fixed;margin-top:180px;margin-left:2185px;"><br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
-<br> <br> <br> <br> <br><br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <font size="70"style="border:solid; border-color:gray; border-radius:25px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &copy; 2016&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ежедневник.бг&nbsp;&nbsp;&nbsp; </font></div>
+
 <div class="se-pre-con"></div>
 <canvas id="canvas"></canvas>
 
 	<div class="wrapper">
 	
 		
-	<div class="upup"></div>
+	
 	<div class="up">
 	<c:set var="username" value="${username}" />
 			<font size="70">&nbsp;&nbsp;&nbsp;&nbsp;			
-		ДОБРЕ ДОШЛИ, <c:out value="${username}" />
+		Welcome, <c:out value="${username}" />
 		 </font>		 		
 		</div >
 	 
-	
-		<!-- <header>
-			<h1>Cooltime House</h1>
-			 
-			
-		</header>
-		<div class="down"style="border:solid; border-color: gray;">
-			<font size="70">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			
-			ЯКИЯТ САЙТ ЗА НОВИНИ </font>
-			 
-			
-		</div> -->
-		<!--   <aside class="menu">
 
-			<section class="menu-inner">
-				
-<form action="${pageContext.request.contextPath}/jsp/login.jsp"><input class="m" type="image" src="/NewssiteProject/imgs/pol1.png" alt="Submit" width="150" height="150"></form>
-		<form action="${pageContext.request.contextPath}/jsp/login.jsp"><input class="m" type="image" src="/NewssiteProject/imgs/ball1.jpg" alt="Submit" width="150" height="150"></form>
-<form action="${pageContext.request.contextPath}/jsp/login.jsp"><input class="m" type="image" src="/NewssiteProject/imgs/tror1.png" alt="Submit" width="150" height="150"></form>
-<form action="${pageContext.request.contextPath}/jsp/login.jsp"><input class="m" type="image" src="/NewssiteProject/imgs/tech1.png" alt="Submit" width="150" height="150"></form>		
-<form action="${pageContext.request.contextPath}/jsp/login.jsp"><input class="m" type="image" src="/NewssiteProject/imgs/he1.png" alt="Submit" width="150" height="150"></form>		
-<form action="${pageContext.request.contextPath}/jsp/login.jsp"><input class="m" type="image" src="/NewssiteProject/imgs/culture1.png" alt="Submit" width="150" height="150"></form>		
-			<form action="${pageContext.request.contextPath}/jsp/login.jsp"><input class="m" type="image" src="/NewssiteProject/imgs/smile0.jpg" alt="Submit" width="150" height="150"></form>		
-						<form action="${pageContext.request.contextPath}/jsp2/news-space6.jsp"><input class="m" type="image" src="/NewssiteProject/imgs/home0.jpg" alt="Submit" width="150" height="150"></form>		
-			
-			</section>
-
-		</aside>-->
-<!--  <div class="down" style="height:30px; width:2230px;"></div>	-->	
 		
 		<aside class="left-up">
 
 		
 	<div class="register">
-     <form class="form-signin"  style="height:700px;" action="article-upload"  enctype="multipart/form-data" method="POST">       
-      <h2 class="form-signin-heading">Please insert article:</h2>
+     <form class="form-signin"  style="float:left; margin-left: 480px; height:680px; zoom:170%" action="article-upload"  enctype="multipart/form-data" method="POST">       
+     <h2 style="background-color:white; color:blue; border-color:white; border-radius:0px;" >CREATE ARTICLE</h2>
        <textarea rows="3" cols="32" name="title" placeholder="Title" style="font-size: 20px; background-color: #FFF68F;
         float: left; display: inline-block; margin-top: 20px;"></textarea>
            <textarea rows="3" cols="32" name="subtitle" placeholder="Subtitle" style="font-size: 20px; background-color: #FFF68F;
         float: left; display: inline-block; margin-top: 20px;"></textarea>
-        <textarea rows="3" cols="32" name="text" placeholder="Text" style="font-size: 20px; background-color: #FFF68F;
+        <textarea rows="5" cols="32" name="text" placeholder="Text" style="font-size: 20px; background-color: #FFF68F;
         float: left; display: inline-block; margin-top: 20px;"></textarea><br><br><br>
-       <label style="font-size: 20px; margin-top: 30px; margin-bottom: 30px;"> Select category</label>
+       <label style="font-size: 20px; margin-top: 30px; margin-bottom: 30px; color:blue;"> Select Category</label>
        <select name="category" style="font-size: 25px;">
        <option value="political">Political</option>
        <option value="sport">Sport</option>
@@ -846,7 +806,7 @@ google.setOnLoadCallback(load);
 		
 			 <aside class="down">
 
-			<section class="down1">
+			<section class="down1" style="zoom:125%; width: 1180px;">
 				
 <form action="https://plus.google.com/collections/featured"><input class="fb" type="image" src="/NewssiteProject/imgs/gp1.png" alt="Submit" width="150" height="150"></form>
 		<form action="https://www.facebook.com"><input class="fb" type="image" src="/NewssiteProject/imgs/fb1.png" alt="Submit" width="150" height="150"></form>

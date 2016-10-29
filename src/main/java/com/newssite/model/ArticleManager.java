@@ -12,8 +12,8 @@ public class ArticleManager {
 		private static ArticleManager instance;
 		private ArticleManager(){
 			allArticles = new ConcurrentHashMap<String, Article>();
-			for(Article u : ArticleDAO.getInstance().getAllArticles()){
-				allArticles.put(u.getTitle(), u);
+			for(Article article : ArticleDAO.getInstance().getAllArticles()){
+				allArticles.put(article.getTitle(), article);
 			}
 		}
 		
@@ -53,6 +53,5 @@ public class ArticleManager {
 			return Collections.unmodifiableMap(allArticles);
 		}
 	}
-
 
 

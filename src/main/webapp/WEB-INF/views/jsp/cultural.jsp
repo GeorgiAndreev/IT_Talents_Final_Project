@@ -67,7 +67,11 @@ background-image: url("https://s4.postimg.org/f4u1w2b7x/news.png");
 </style>
 </head>
 <body style="background-color: #CDC673;">
-	<div>
+<form action="/NewssiteProject/index" style="position:fixed;">
+					<input class="m" type="image" src="/NewssiteProject/imgs/en1.png"
+						alt="Submit" width="400" height="150">
+				</form>
+	<div style="margin-left:500px;">
 <%!public String textZaModala="Teeeeeekst na novina."; %>
 		<%
 			//if (request.getAttribute("news") != null) {
@@ -114,22 +118,15 @@ background-image: url("https://s4.postimg.org/f4u1w2b7x/news.png");
 			<!--  <form action='./ShowNew2' method='post'>-->
 			<form:form method="GET" action="/NewssiteProject/single-new">
 			<input type="hidden" name="whichNewToShow" value="<%=allNews.get(index).getId()%>" />
-		<table>
-						
 		
-			<tr>
-				<td><input type="submit" value="Redirect Page" /></td>
-			</tr>
-		</table>
-	</form:form>
+	        </form:form>
 			<form action='/NewssiteProject/single-new' method='get'>
 				<input type="hidden" name="whichNewToShow" value="<%=allNews.get(index).getId()%>" />
 				<input style="border-radius: 25px; background-color: #FFF68F; float:right; margin:10px;20px;20px;10px; border-color: #8B8B00;"class="subscribe" type="submit" value="READ MORE >>>">
 					<!--  <a href="./ShowNew?export=<%=allNews.get(index).getTitle()%>">Export</a>-->
 					
 			</form>
-			<button id="<%=allNews.get(index).getId()%>"  onclick="openModalFunction(this)" class="modalBtn">Open Modal</button>
-			<!-- <a href="single-new.jsp">READ MORE >>></a> -->
+			
 			<%
 				String showId = "";
 				session.setAttribute("whichToShow", showId);
@@ -157,12 +154,9 @@ background-image: url("https://s4.postimg.org/f4u1w2b7x/news.png");
   </div>
 
 </div>
-		
-		
+			
 		
 	</div>
-	
-	
 	
 	
 	<script>

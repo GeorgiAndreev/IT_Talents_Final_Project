@@ -12,6 +12,9 @@
 
 
 <style type="text/css">
+
+
+
 header, section, footer, aside, nav, article, figure, figcaption {
 	display: block;
 }
@@ -87,7 +90,8 @@ body {
 .wrapper {
 	
 	width: 2230px;
-	margin: 20px auto 20px 500px;
+	margin: 80px auto 20px 500px;
+	padding-top: 130px;
 	/*border: 2px solid #000000;*/
 	/*background-color: #D3D3D3;*/
 	background-color:  #CDC673;
@@ -700,13 +704,12 @@ google.load("feeds", "1");
 google.setOnLoadCallback(load);
 </script>
 </head>
-<div>YYYYYYYYYYYYYYY</div>
 <body>
 <div style="border:solid; border-color:gray; border-radius:25px; height:260px;width:100%;background-color: #FFF68F;position:fixed;margin-top:-5em;">
 		<aside class="menu">
 
-			<section class="menu-inner-fixed">
-				<form action="http://localhost:8080/ServiceDemo/news-short.jsp">
+			<section class="menu-inner-fixed" style="zoom:125%">
+				<form action="/NewssiteProject/index">
 					<input class="m" type="image" src="/NewssiteProject/imgs/en1.png"
 						alt="Submit" width="400" height="150">
 				</form>
@@ -748,72 +751,20 @@ google.setOnLoadCallback(load);
 
 		</aside>
 </div>
-<div style="border:solid; border-color:gray; border-radius:25px; float:left;height:100%;width:500px;background-color: #CDC673; position:fixed;margin-top:180px;"></div>
-<div style="color:white;border:solid; border-color:gray; border-radius:25px;height:100%;width:500px;background-color: #CDC673; position:fixed;margin-top:180px;margin-left:2185px;"><br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> 
-<br> <br> <br> <br> <br><br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <font size="70"style="border:solid; border-color:gray; border-radius:25px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &copy; 2016&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br> <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ежедневник.бг&nbsp;&nbsp;&nbsp; </font></div>
+
 <div class="se-pre-con"></div>
 <canvas id="canvas"></canvas>
 
 	<div class="wrapper">
 	
-	<div class="upup">
-			<h1>Cooltime House</h1>
-			 
-			
-		</div>
-	<div class="up">
-			<font size="70">&nbsp;&nbsp;&nbsp;&nbsp;
-			
-			ДОБРЕ ДОШЛИ, не сте влезли в профила си </font>
-			 
-			
-		</div >
-		
-		<!-- <header>
-			<h1>Cooltime House</h1>
-			 
-			
-		</header>
-		<div class="down"style="border:solid; border-color: gray;">
-			<font size="70">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			
-			ЯКИЯТ САЙТ ЗА НОВИНИ </font>
-			 
-			
-		</div> -->
-		<!--   <aside class="menu">
 
-			<section class="menu-inner">
-				
-<form action="${pageContext.request.contextPath}/jsp/login.jsp"><input class="m" type="image" src="/NewssiteProject/imgs/pol1.png" alt="Submit" width="150" height="150"></form>
-		<form action="${pageContext.request.contextPath}/jsp/login.jsp"><input class="m" type="image" src="/NewssiteProject/imgs/ball1.jpg" alt="Submit" width="150" height="150"></form>
-<form action="${pageContext.request.contextPath}/jsp/login.jsp"><input class="m" type="image" src="/NewssiteProject/imgs/tror1.png" alt="Submit" width="150" height="150"></form>
-<form action="${pageContext.request.contextPath}/jsp/login.jsp"><input class="m" type="image" src="/NewssiteProject/imgs/tech1.png" alt="Submit" width="150" height="150"></form>		
-<form action="${pageContext.request.contextPath}/jsp/login.jsp"><input class="m" type="image" src="/NewssiteProject/imgs/he1.png" alt="Submit" width="150" height="150"></form>		
-<form action="${pageContext.request.contextPath}/jsp/login.jsp"><input class="m" type="image" src="/NewssiteProject/imgs/culture1.png" alt="Submit" width="150" height="150"></form>		
-			<form action="${pageContext.request.contextPath}/jsp/login.jsp"><input class="m" type="image" src="/NewssiteProject/imgs/smile0.jpg" alt="Submit" width="150" height="150"></form>		
-						<form action="${pageContext.request.contextPath}/jsp2/news-space6.jsp"><input class="m" type="image" src="/NewssiteProject/imgs/home0.jpg" alt="Submit" width="150" height="150"></form>		
-			
-			</section>
-
-		</aside>-->
-<!--  <div class="down" style="height:30px; width:2230px;"></div>	-->	
 		
 		<aside class="left-up">
 
 		
-	<div class="register">
+	<div class="register" style="zoom:170%; float:left; margin-left:600px">
     <form class="form-signin" action="Login" method="POST">       
-      <h2 class="form-signin-heading">Please login</h2>
+      <h2 style="background-color:white; color:blue; border-color:white; border-radius:0px;" >PLEASE LOGIN</h2><br>
       <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" />
       <input type="password" class="form-control" name="password" placeholder="Password" required=""/>      
       <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
@@ -829,7 +780,7 @@ google.setOnLoadCallback(load);
 		
 			 <aside class="down">
 
-			<section class="down1">
+			<section class="down1" style="zoom:125%; width:1180px;">
 				
 <form action="https://plus.google.com/collections/featured"><input class="fb" type="image" src="/NewssiteProject/imgs/gp1.png" alt="Submit" width="150" height="150"></form>
 		<form action="https://www.facebook.com"><input class="fb" type="image" src="/NewssiteProject/imgs/fb1.png" alt="Submit" width="150" height="150"></form>

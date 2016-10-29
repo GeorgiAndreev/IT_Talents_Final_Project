@@ -74,93 +74,9 @@ public class NewArticleDAO {
         	//Object obj = parser.parse(new FileReader("C:/Users/Maria/workspace/news/NewssiteProject/src/main/webapp/static/json/file2.txt"));
             JsonObject jsonObject = (JsonObject) obj;
  
-			
-				 
-				    //JsonElement root = jp.parse(new InputStreamReader((InputStream) request.getContent())); //Convert the input stream to a json element
-				  
-			
-					//byte[] bytes = new byte[connection.getContentLength()];
-					//byte[] bytes = new byte[10000];
-					//bis.read(bytes);
-					 
-					
-					//PrintWriter writer = new PrintWriter("C:/Users/Jorj Andre/workspace/ServiceDemo/file2.txt", "UTF-8");
-					//writer.println(result);
-					//writer.close();
-					
-					
-					//String json = new String(bytes, "UTF-8");
-					//System.out.println(json);
-					//java.io.File jsonTestFile = new java.io.File("C:/Users/Jorj Andre/workspace/ServiceDemo/file2.txt");
-					//PrintWriter printWriter = new PrintWriter(jsonTestFile);
-					//printWriter.println(new InputStreamReader(bis, "UTF-8"));
-					//printWriter.println("uuuuuuuuuuuuuuuuuuuuuuuu");
-					//printWriter.close();
-					//try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-				  //            new FileOutputStream("filename.txt"), "utf-8"))) {
-				 //  writer.write(json);
-				//}
-					
-				//	String title = null;
-				//	String text = null;
-					
-				//	Gson gson = new Gson();
-				//	New[] news1 = gson.fromJson(json, New[].class);
-					
-				/* JsonReader:
-			
-					JsonReader jsonReader = new JsonReader(new StringReader(json));
-					
-					jsonReader.setLenient(true);
-					
-					jsonReader.beginObject();
-					
-					String name = jsonReader.nextName();
-				  
-				  System.out.println(name);  
-				  
-				  jsonReader.beginArray();
-				  
-				  jsonReader.beginObject();
-				  
-				  while (jsonReader.hasNext()) {
-		                 String n = jsonReader.nextName();
-		                 if (n.equals("title")){
-		                     System.out.println(jsonReader.nextString());
-		                 } else {
-							jsonReader.skipValue();
-						}
-		                 
-		             }
-				
-					jsonReader.close(); 
-					
-				*/
-
-				  /*  jsonReader.beginArray();
-
-				    while (jsonReader.hasNext()) {
-
-				    String name = jsonReader.nextName();
-				        if (name.equals("posts")) {
-				             readApp(jsonReader);
-
-				        }
-				    }
-
-				   jsonReader.endObject();
-				   jsonReader.close();
-					*/
-					
-					
-					
-					
-					
-					//  JsonObject result = (JsonObject) new JsonParser().parse(json);
-					System.out.println(jsonObject);
+	
 					       JsonArray posts = jsonObject.getAsJsonArray("posts");
-					      // posts.size();
-					//JsonObject jsonNew1 = (JsonObject)posts.get(0);
+					   
 					       
 					       int count = 0;
 					for (Iterator<JsonElement> it = posts.iterator(); it.hasNext();) {
@@ -195,8 +111,7 @@ public class NewArticleDAO {
 	
 						
 					}
-		//news.add(new New(jsonNew1.get("title").getAsString(), jsonNew1.get("text").getAsString()));
-		//			news.add(new New("test new", "text"));
+		
 					return allNewsFromFile;
         } catch(Exception e){
         	
@@ -237,74 +152,6 @@ public class NewArticleDAO {
 					      result1 = bis.read();
 					  }
 					  String text = buf.toString();
-					
-					//PrintWriter writer = new PrintWriter("C:/Users/Jorj Andre/workspace/ServiceDemo/file2.txt", "UTF-8");
-					//writer.println(result);
-					//writer.close();
-					
-					
-					//String json = new String(bytes, "UTF-8");
-					//System.out.println(json);
-					//java.io.File jsonTestFile = new java.io.File("C:/Users/Jorj Andre/workspace/ServiceDemo/file2.txt");
-					//PrintWriter printWriter = new PrintWriter(jsonTestFile);
-					//printWriter.println(new InputStreamReader(bis, "UTF-8"));
-					//printWriter.println("uuuuuuuuuuuuuuuuuuuuuuuu");
-					//printWriter.close();
-					//try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-				  //            new FileOutputStream("filename.txt"), "utf-8"))) {
-				 //  writer.write(json);
-				//}
-					
-				//	String title = null;
-				//	String text = null;
-					
-				//	Gson gson = new Gson();
-				//	New[] news1 = gson.fromJson(json, New[].class);
-					
-				/* JsonReader:
-			
-					JsonReader jsonReader = new JsonReader(new StringReader(json));
-					
-					jsonReader.setLenient(true);
-					
-					jsonReader.beginObject();
-					
-					String name = jsonReader.nextName();
-				  
-				  System.out.println(name);  
-				  
-				  jsonReader.beginArray();
-				  
-				  jsonReader.beginObject();
-				  
-				  while (jsonReader.hasNext()) {
-		                 String n = jsonReader.nextName();
-		                 if (n.equals("title")){
-		                     System.out.println(jsonReader.nextString());
-		                 } else {
-							jsonReader.skipValue();
-						}
-		                 
-		             }
-				
-					jsonReader.close(); 
-					
-				*/
-
-				  /*  jsonReader.beginArray();
-
-				    while (jsonReader.hasNext()) {
-
-				    String name = jsonReader.nextName();
-				        if (name.equals("posts")) {
-				             readApp(jsonReader);
-
-				        }
-				    }
-
-				   jsonReader.endObject();
-				   jsonReader.close();
-					*/
 					
 					
 					
@@ -347,8 +194,7 @@ public class NewArticleDAO {
 	
 						
 					}
-		//news.add(new New(jsonNew1.get("title").getAsString(), jsonNew1.get("text").getAsString()));
-		//			news.add(new New("test new", "text"));
+
 					return allNews;
 					
 					
@@ -364,34 +210,4 @@ public class NewArticleDAO {
 	}
 	
 	
-	
-	/*public void readApp(JsonReader jsonReader) throws IOException{
-	    jsonReader.beginObject();
-	     while (jsonReader.hasNext()) {
-	         String name = jsonReader.nextName();
-	         System.out.println(name);
-	         if (name.contains("thread")){
-	             jsonReader.beginObject();
-	             while (jsonReader.hasNext()) {
-	                 String n = jsonReader.nextName();
-	                 if (n.equals("title")){
-	                     System.out.println(jsonReader.nextString());
-	                 }
-	                 if (n.equals("age")){
-	                     System.out.println(jsonReader.nextInt());
-	                 }
-	                 if (n.equals("text")){
-	                     jsonReader.beginArray();
-	                     while  (jsonReader.hasNext()) {
-	                          System.out.println(jsonReader.nextString());
-	                     }
-	                     jsonReader.endArray();
-	                 }
-	             }
-	             jsonReader.endObject();
-	         }
-
-	     }
-	     jsonReader.endObject();
-	}*/
 }

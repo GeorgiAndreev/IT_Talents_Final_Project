@@ -3,6 +3,8 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>	
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +21,6 @@ String borderColor = ChangeThemes.returnBorder(id);%>
 header, section, footer, aside, nav, article, figure, figcaption {
 	display: block;
 }
-
 article.earth {
 	/*height: 263px;
 	width: 248px;*/
@@ -29,7 +30,6 @@ article.earth {
 	margin: 30px 30px 30px 30px;
 	background-color: black;
 }
-
 aside.right {
 	border: solid;
 	border-color: gray;
@@ -43,7 +43,6 @@ aside.right {
 	:
 	25px;
 }
-
 aside.left {
 	border: solid;
 	border-color: gray;
@@ -57,7 +56,6 @@ aside.left {
 	:
 	25px;
 }
-
 aside.down {
 	border: solid;
 	border-color: gray;
@@ -69,7 +67,6 @@ aside.down {
 	background-color:#777733;
 	border-radius:25px;
 }
-
 aside.right-up {
 	border: solid;
 	border-color: gray;
@@ -85,7 +82,6 @@ aside.right-up {
 	:
 	25px;
 }
-
 aside.menu-fixed {
 	height: 240px;
 	width: 2120px;
@@ -95,7 +91,6 @@ aside.menu-fixed {
 	25px;
 	top: 0;
 }
-
 aside.menu {
 	height: 240px;
 	width: 100%;
@@ -109,7 +104,6 @@ aside.menu {
 	:
 	25px;
 }
-
 aside.left-up {
 	border: solid;
 	border-color: gray;
@@ -125,22 +119,18 @@ aside.left-up {
 	:
 	25px;
 }
-
 h2.title { <%=borderColor %>
 	
 }
-
 h2 {
 	font-family: BuxtonSketch;
 }
-
 article {
 	clear: both;
 	overflow: auto;
 	width: 100%;
 	margin: 10px 10px 10px 10px; <%="background-color: white;"%>
 }
-
 body {
 	zoom: 100%;
 	color: white;
@@ -213,7 +203,6 @@ body {
 	function load() {
 		var feed = "http://feeds.bbci.co.uk/news/world/rss.xml";
 		new GFdynamicFeedControl(feed, "feedControl");
-
 	}
 	google.load("feeds", "1");
 	google.setOnLoadCallback(load);
@@ -239,7 +228,7 @@ body {
 		<aside class="menu">
 
 			<section class="menu-inner-fixed">
-				<form action="http://localhost:8080/ServiceDemo/news-short.jsp">
+				<form action="/NewssiteProject/index">
 					<input class="m" type="image" src="/NewssiteProject/imgs/en1.png"
 						alt="Submit" width="400" height="150">
 				</form>
@@ -287,11 +276,12 @@ body {
 	<div class="wrapper">
 
 		<div class="upup"></div>
-		<div class="up">
-			<font size="70">&nbsp;&nbsp;&nbsp;&nbsp; WELLCOME, Guest</font>
-
-
-		</div>
+	<div class="up">
+	<c:set var="username" value="${username}" />
+			<font size="70">&nbsp;&nbsp;&nbsp;&nbsp;			
+		Welcome, <c:out value="${username}" />
+		 </font>		 		
+		</div >
 
 		<header>
 			<div style="border: solid;border-color: gray;border-radius:100px;background-color: #CECC15; height: 362px; width: 2010px; padding-left:0px; margin-top: 50px; padding-top: 0px;margin-left:50px;">
@@ -322,7 +312,7 @@ body {
 		<aside class="left-up">
 
 			<h2 class="w3-center">
-				<font size="20">RANDOM NEWS</font>
+				<font size="20">OTHER NEWSSITES WE SUGGEST </font>
 			</h2>
 
 			<div class="w3-content" style="width: 400px">
@@ -331,7 +321,7 @@ body {
 					<img src="/NewssiteProject/imgs/red-stars1.jpg"
 						style="width: 1200px; height: 480px;">
 					<div>
-						<a href="http://www.space.com"><font size="800">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;КОСМОС</font></a>
+						<a href="http://www.space.com"><font size="800">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;SPACE NEWS</font></a>
 					</div>
 				</div>
 
@@ -339,7 +329,7 @@ body {
 					<img src="/NewssiteProject/imgs/wheat1.jpg"
 						style="width: 1200px; height: 480px;">
 					<div>
-						<a href="https://en.wikipedia.org/wiki/Wheat"><font size="800">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ЖИТО</font></a>
+						<a href="https://www.fwi.co.uk"><font size="800">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FARMING NEWS</font></a>
 					</div>
 				</div>
 
@@ -348,7 +338,7 @@ body {
 					<img src="/NewssiteProject/imgs/forest1.jpg"
 						style="width: 1200px; height: 480px;">
 					<div>
-						<a href="http://survivetheforest.com"><font size="800">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ГОРА</font></a>
+						<a href="http://www.ecology.com/"><font size="800">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ECOLOGICAL NEWS</font></a>
 					</div>
 				</div>
 
@@ -361,7 +351,7 @@ body {
 			<!--  <iframe width="400" height="400" style="border: none;"
 		src="http://output96.rssinclude.com/output?type=iframe&amp;id=1099968&amp;hash=acfd107628e325462cd6bbe615df114a"></iframe>-->
 			<form
-				style="margin: 10px; 0 px; 0 px; 0 px; height: 150px; border: solid; border-color: gray; border-radius: 25px;"
+				style="margin: 10px; 0 px; 0 px; 70 px; height: 150px; border: solid; border-color: gray; border-radius: 25px;"
 				action="/NewssiteProject/SearchWeb">
 				<input id="searchWeb" type="text" name="searchWeb"
 					style="margin: 40px; 20 px; 40 px; 40 px; font-size: 60px; float: left; width: 420px; height: 70px; border: solid; border-color: gray; border-radius: 25px;">
@@ -370,9 +360,22 @@ body {
 					class="reg" type="image" src="/NewssiteProject/imgs/mag2.png"
 					alt="Submit" width="100" height="100">
 			</form>
-			<form action="/NewssiteProject/Register"><input title="REGISTER" id="reg" class="reg" type="image" src="/NewssiteProject/imgs/reg1.png" alt="Submit" width="160" height="160"></form>
-            <form action="/NewssiteProject/Login"><input title="LOGIN" id="login" class="log" type="image" src="/NewssiteProject/imgs/login2.png" alt="Submit" width="160" height="160"></form>
-			<iframe width="680" height="320" style="border: none;"src="http://output50.rssinclude.com/output?type=iframe&amp;id=1099973&amp;hash=8d1d46f8c7b113b14b9c118ca1b047d8"></iframe>
+			<%if(request.getAttribute("username").equals("Guest"))
+			{%>
+				<form action="/NewssiteProject/Register"><input style="margin-top: 80px; margin-left:100px;"title="REGISTER" id="reg" class="reg" type="image" src="/NewssiteProject/imgs/reg1.png" alt="Submit" width="160" height="160"></form>
+            <form action="/NewssiteProject/Login"><input style="margin-top: 80px; margin-left: 100px;" title="LOGIN" id="login" class="log" type="image" src="/NewssiteProject/imgs/login2.png" alt="Submit" width="160" height="160"></form>
+			<% }
+				%>
+			
+			
+		
+			<%if(!request.getAttribute("username").equals("Guest"))
+			{%>
+				<form action="/NewssiteProject/Logout"><input style="margin-top: 80px; margin-left:100px;" title="LOGOUT" id="login" class="log" type="image" src="/NewssiteProject/imgs/logout.png" alt="Submit" width="160" height="160"></form>
+        <form action="/NewssiteProject/UploadArticle"><input style="margin-top: 80px; margin-left:100px;" title="UPLOAD ARTICLE" id="login" class="log" type="image" src="/NewssiteProject/imgs/up4.png" alt="Submit" width="160" height="160"></form>
+			<% }
+				%>
+			<iframe width="680" height="320" style="border: none;margin-top: 80px;"src="http://output50.rssinclude.com/output?type=iframe&amp;id=1099973&amp;hash=8d1d46f8c7b113b14b9c118ca1b047d8"></iframe>
 
 		</aside>
 
@@ -395,13 +398,11 @@ body {
 				</h2>
 
 				<form class="inquiry">
-					<font size="20">Какво мислите за програмистите?</font><br> <br>
+					<font size="20">What do you think about immigrants?</font><br><br><br>
 					<input type="radio" name="gender" value="male" checked><font
-						size="20">Готини са. </font><br> <br> <br> <input
-						type="radio" name="gender" value="female"><font size="20">Много
-						са готини.</font><br> <br> <br> <input type="radio"
-						name="gender" value="other"><font size="20">Турбо
-						мега готини са.</font> <input class="select-theme" type="submit"
+						size="20">We should help them even if our country is poor. </font><br> <br> <br> <input
+						type="radio" name="gender" value="female"><font size="20">We should not accept them in our country. They are dangerous.</font><br> <br> <br> <input type="radio"
+						name="gender" value="other"><font size="20">I have no opinion.</font> <input class="select-theme" type="submit"
 						value="ГЛАСУВАЙ!">
 				</form>
 			</section>
@@ -448,7 +449,7 @@ body {
 
 			</section>
 			<section
-				style="width: 650px; height: 730px; margin: 10px 10px 10px 10px; padding: 6px; 6 px; 6 px; 6 px; overflow: scroll;">
+				style="width: 650px; height: 770px; margin: 10px 10px 10px 10px; padding: 6px; 6 px; 6 px; 6 px; overflow: scroll;">
 				<script language="JavaScript"
 					src="http://www.feedbucket.com/js.php?src=http%3A%2F%2Ffeeds.labnol.org%2Flabnol&chan=y&desc=1&date=y"
 					type="text/javascript"></script>
@@ -465,7 +466,7 @@ body {
 				WEATHER
 			</h2>
 
-<div id="cont_283d5572f2b299efdfebc2dd0cdbf824"><script type="text/javascript" async src="https://www.yourweather.co.uk/wid_loader/283d5572f2b299efdfebc2dd0cdbf824"></script></div>
+<!--  <div id="cont_283d5572f2b299efdfebc2dd0cdbf824"><script type="text/javascript" async src="https://www.yourweather.co.uk/wid_loader/283d5572f2b299efdfebc2dd0cdbf824"></script></div>-->
 <div id="cont_8f37222d818dcafed3c63c64e14fc1ba"><script type="text/javascript" async src="https://www.yourweather.co.uk/wid_loader/8f37222d818dcafed3c63c64e14fc1ba"></script></div>
 			
 		</section>
@@ -483,9 +484,43 @@ body {
 
 		</aside>
 
-		<aside class="middle">
-			<br><br><br><br>
+		 <aside class="middle" style="color:black;">
+		 <div style="width: 600px; height: 800px; float:left; margin-left: 100px;">
+		 <br>
+         <h2>WEATHER IN YOUR CITY:</h2>
+         <br><br>
+		<h3 style="color:green;font-size:60px;">City name: </h2>
+		<br><br>
+		<input type="text" name="city" id="city" value="Sofia" size = 15; style="font-size: 60px;"><br>
+		<br>
+		<input type="button" onClick="returnWeather()" value="Search" style="font-size: 60px;"><br>	
+		<br><br>
+		<h3 style="color:green;font-size:60px;">Temperature(Celsius): </h3>
+		<br><br>
+		<h3 id="temperature"  style="color:black;font-size:50px;"></h3>
+		<br><br>
+		<h3 style="color:green;font-size:60px;">Description: </h3>
+		<br><br>
+		<h3 id="description"  style="color:black;font-size:60px;"></h3><br>
+		</div>
 		</aside>
+		
+		<script>
+		function returnWeather(){
+			var city = document.getElementById("city").value;
+			$.get(
+				"getWeather", //url to server - the get request goes there
+				{name:city}, //data for server - parameters for the request
+				function(data){//starts when server returns a response. data is the response body
+				var json = jQuery.parseJSON(data);
+				document.getElementById("temperature").innerHTML = Math.round(json.main.temp-273);
+				document.getElementById("description").innerHTML = json.weather[0].description;
+				//do something with the response
+			})
+		}
+	</script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?callback=myMap"></script>
 
 
 
@@ -539,7 +574,6 @@ body {
 	<script>
 		var slideIndex = 0;
 		carousel();
-
 		function carousel() {
 			var i;
 			var x = document.getElementsByClassName("mySlides");

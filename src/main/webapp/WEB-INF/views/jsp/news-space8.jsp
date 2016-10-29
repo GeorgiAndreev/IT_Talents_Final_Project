@@ -951,7 +951,7 @@ google.setOnLoadCallback(load);
 		</aside>
 		
 		 <aside class="middle">
-<h2>Select a town:</h2>
+         <h2>Select a town:</h2>
 		<h3>City name: </h3><input type="text" name="city" id="city" value="Sofia"><br>
 		<input type="button" onClick="askApi()" value="Search"><br>	
 		<h3>Temperature: </h3><h2 id="temp"></h2><br>

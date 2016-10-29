@@ -293,8 +293,6 @@ body {
 		ДОБРЕ ДОШЛИ, <c:out value="${username}" />
 		 </font>		 		
 		</div >
-	 
-	 <%=session.getAttribute("user_id") %>
 
 		<header>
 			<div style="border: solid;border-color: gray;border-radius:100px;background-color: #CECC15; height: 362px; width: 2010px; padding-left:0px; margin-top: 50px; padding-top: 0px;margin-left:50px;">
@@ -535,10 +533,9 @@ body {
 		</aside>
 
 		<aside class="middle">
-			<form action="/NewssiteProject/Register"><input title="РЕГИСТРИРАЙ СЕ" id="reg" class="reg" type="image" src="/NewssiteProject/imgs/reg1.png" alt="Submit" width="160" height="160"></form>
-<form action="/NewssiteProject/Login"><input title="ВЛЕЗ В ПРОФИЛА СИ" id="login" class="log" type="image" src="/NewssiteProject/imgs/login2.png" alt="Submit" width="160" height="160"></form>
-<form action="/NewssiteProject/UploadArticle"><input title="UPLOAD ARTICLE" id="login" class="log" type="image" src="/NewssiteProject/imgs/up4.png" alt="Submit" width="160" height="160"></form>
-
+		<form action="/NewssiteProject/Register"><input title="РЕГИСТРИРАЙ СЕ" id="reg" class="reg" type="image" src="/NewssiteProject/imgs/reg1.png" alt="Submit" width="160" height="160"></form>
+        <form action="/NewssiteProject/Logout"><input title="ИЗЛЕЗ ОТ ПРОФИЛА СИ" id="login" class="log" type="image" src="/NewssiteProject/imgs/logout.png" alt="Submit" width="160" height="160"></form>
+        <form action="/NewssiteProject/UploadArticle"><input title="UPLOAD ARTICLE" id="login" class="log" type="image" src="/NewssiteProject/imgs/up4.png" alt="Submit" width="160" height="160"></form>
 
 		</aside>
 

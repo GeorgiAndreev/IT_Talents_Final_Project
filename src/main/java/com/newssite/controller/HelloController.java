@@ -29,7 +29,8 @@ public class HelloController {
 	}
 
 	@RequestMapping(value="/index", method = RequestMethod.GET)
-	public String sayHello() {
+	public String sayHello(HttpServletRequest request,Model model) {
+		request.setAttribute("username", "Guest");
 		return "index";
 		
 	}	

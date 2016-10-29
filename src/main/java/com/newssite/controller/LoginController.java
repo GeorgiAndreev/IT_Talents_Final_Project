@@ -22,22 +22,29 @@ public class LoginController {
 		return "Login";		
 	}
 	
+	@RequestMapping(value = "/Logout", method = RequestMethod.GET)
+	public String logOut(HttpServletRequest request, Model model) {
+		HttpSession session = request.getSession();
+		session.invalidate();
+		request.setAttribute("username", "Guest");
+		return "index";
+	}
+	
 	
 	@RequestMapping(value="/Login", method = RequestMethod.POST)
 	public String log(Model model, @ModelAttribute("username") String username, @ModelAttribute("password") String password,HttpServletRequest request) {
 
 		if (UsersManager.getInstance().hasUser(username,password)) {
 			User user= UsersManager.getInstance().getUser(username);
-			//request.getSession(false).invalidate();
 			HttpSession session = request.getSession(true);
 			session.setMaxInactiveInterval(60 * 60);
 			session.setAttribute("username", user.getUsername());
 			session.setAttribute("user_id", UserDAO.getId(username));
 			model.addAttribute(user);
-		    User userr= UserDAO.getUser(username, password);
-			request.setAttribute("user", userr);
+		    //User userr= UserDAO.getUser(username, password);
+			//request.setAttribute("user", userr);
 			request.setAttribute("username", username);
-			return "loged";
+			return "index";
 	}
 		return "LoginFailed";
 

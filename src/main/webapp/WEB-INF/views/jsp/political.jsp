@@ -18,6 +18,27 @@
 <title>News App</title>
 <style>
 
+a.back-to-top {
+	width: 150px;
+	height: 150px;
+	text-indent: -9999px;
+	position: fixed;
+	z-index: 999;
+	right: 30px;
+	bottom: 20px;
+	background: #CDC673 url("/NewssiteProject/imgs/up5.png") no-repeat
+		center 43%;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	border-radius: 60px;
+	border-style: solid;
+	border-color: gray;
+}
+
+a:hover.back-to-top {
+	background-color: #CDC673;
+}	
+
 
 /* The Modal (background) */
 .modal {
@@ -67,7 +88,11 @@ background-image: url("https://s4.postimg.org/f4u1w2b7x/news.png");
 </style>
 </head>
 <body style="background-color: #CDC673;">
-	<div>
+<form action="/NewssiteProject/index" style="position:fixed;">
+					<input class="m" type="image" src="/NewssiteProject/imgs/en1.png"
+						alt="Submit" width="400" height="150">
+				</form>
+	<div style="margin-left:500px;">
 <%!public String textZaModala="Teeeeeekst na novina."; %>
 		<%
 			//if (request.getAttribute("news") != null) {
@@ -114,13 +139,7 @@ background-image: url("https://s4.postimg.org/f4u1w2b7x/news.png");
 			<!--  <form action='./ShowNew2' method='post'>-->
 			<form:form method="GET" action="/NewssiteProject/single-new">
 			<input type="hidden" name="whichNewToShow" value="<%=allNews.get(index).getId()%>" />
-		<table>
-						
-		
-			<tr>
-				<td><input type="submit" value="Redirect Page" /></td>
-			</tr>
-		</table>
+
 	</form:form>
 			<form action='/NewssiteProject/single-new' method='get'>
 				<input type="hidden" name="whichNewToShow" value="<%=allNews.get(index).getId()%>" />
@@ -128,8 +147,7 @@ background-image: url("https://s4.postimg.org/f4u1w2b7x/news.png");
 					<!--  <a href="./ShowNew?export=<%=allNews.get(index).getTitle()%>">Export</a>-->
 					
 			</form>
-			<button id="<%=allNews.get(index).getId()%>"  onclick="openModalFunction(this)" class="modalBtn">Open Modal</button>
-			<!-- <a href="single-new.jsp">READ MORE >>></a> -->
+			
 			<%
 				String showId = "";
 				session.setAttribute("whichToShow", showId);
@@ -209,6 +227,8 @@ window.onclick = function(event) {
     }
 }
 </script>
+
+<script src="/NewssiteProject/js/back-to-top.js" type="text/javascript"></script>
 	
 </body>
 </html>
