@@ -29,6 +29,10 @@ div.comment {
 </style>
 </head>
 <body style="zoom: 220%; background-color: #CDC673;">
+<form action="/NewssiteProject/index" style="position:fixed;">
+					<input class="m" type="image" src="/NewssiteProject/imgs/en1.png"
+						alt="Submit" width="400" height="150">
+				</form>
 <div id="fb-root"></div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
     <script src="http://malsup.github.com/jquery.form.js"></script> 
@@ -59,7 +63,8 @@ div.comment {
 							NewArticleConfiguration.class);
 					//ArrayList<New> allNews = NewDAO.allNewsFromFile;
 					//ArrayList<New> allNews = NewDAO.getNewsFromFile();
-					ArrayList<New> allNews = (ArrayList)context.getBean(NewArticleDAO.class).allNewsBySearchWord;
+					ArrayList<New> allNews = (ArrayList)session.getAttribute("searchResults");
+					//ArrayList<New> allNews = (ArrayList)context.getBean(NewArticleDAO.class).allNewsBySearchWord;
 					context.close();
 					//out.print( allNews);out.print( allNews);out.print( allNews);
 					for (int index = 0; index < allNews.size(); index++) {

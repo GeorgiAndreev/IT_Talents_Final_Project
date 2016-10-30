@@ -80,6 +80,7 @@ background-image: url("https://s4.postimg.org/f4u1w2b7x/news.png");
 				AnnotationConfigApplicationContext context = 
 				new AnnotationConfigApplicationContext(NewArticleConfiguration.class);
 				ArrayList<New> allNews=(ArrayList)context.getBean(NewArticleDAO.class).getNewsByTitle(searhWord);
+				session.setAttribute("searchResults", allNews);
 				for (int index = 0; index < allNews.size(); index++) {
 		%>
 		<div
